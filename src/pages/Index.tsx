@@ -497,11 +497,14 @@ const Index = () => {
       <section id="jogos" className="px-5 py-10 bg-card">
         <div className="container max-w-2xl mx-auto">
           {/* Header */}
-          <h2 className="text-xl sm:text-2xl font-extrabold text-foreground text-center mb-2">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-foreground text-center mb-3">
             Escolha Seu Jogo Favorito e
             <br />
-            <span className="text-primary">Jogue Para Sempre!</span>
+            <span className="italic text-amber-400">Jogue Para Sempre!</span>
           </h2>
+          <p className="text-sm sm:text-base text-muted-foreground text-center mb-6">
+            Pagamento <span className="text-primary font-semibold underline">único</span> • Sem mensalidades • Download <span className="text-primary font-semibold italic">imediato</span>
+          </p>
 
           {/* Trust badges - card style */}
           <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-8 max-w-md mx-auto">
