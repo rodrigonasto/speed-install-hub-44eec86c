@@ -321,11 +321,11 @@ const Index = () => {
             <div className="rounded-xl border-2 border-primary bg-primary/5 p-4 flex flex-col relative">
               <div className="absolute top-0 inset-x-0 h-0.5 bg-primary rounded-t-xl" />
 
-              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full mb-3 self-start">
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full mb-3 self-center">
                 ⭐ Recomendado
               </span>
 
-              <h3 className="text-sm font-bold text-foreground mb-3">Instalação automática</h3>
+              <h3 className="text-sm font-bold text-foreground mb-3 text-center">Instalação automática</h3>
 
               {/* Pack image */}
               <div className="rounded-lg overflow-hidden mb-3 w-3/4 mx-auto">
