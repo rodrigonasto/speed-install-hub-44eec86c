@@ -300,18 +300,29 @@ const Index = () => {
               </a>
             </div>
 
-            {/* Card 2 — Automático (recomendado) */}
+            {/* Card 2 — Automático (recomendado) - estilo Mega Pack */}
             <div className="rounded-xl border-2 border-primary bg-primary/5 p-4 flex flex-col relative">
-              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full mb-2 self-start">
+              <div className="absolute top-0 inset-x-0 h-0.5 bg-primary rounded-t-xl" />
+
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full mb-3 self-start">
                 ⭐ Recomendado
               </span>
-              <h3 className="text-sm font-bold text-foreground mb-3">Instalação automática</h3>
+
+              <h3 className="text-sm font-bold text-foreground mb-1">MEGA PACK COMPLETO</h3>
+              <p className="text-muted-foreground text-[10px] mb-3">Tudo pronto, sem dor de cabeça</p>
+
+              {/* Pack image */}
+              <div className="rounded-lg overflow-hidden mb-3">
+                <img src={packImage} alt="Pack com todos os jogos" className="w-full" />
+              </div>
+
               <ul className="space-y-2 mb-4 flex-1">
                 {[
-                  "Instala em 1 clique",
-                  "Jogo já configurado",
-                  "Pack com vários jogos",
+                  "Instalação automática em 1 clique",
+                  "Jogo configurado e pronto",
                   "Sem erros ou arquivos faltando",
+                  "+80 jogos clássicos inclusos",
+                  "Atualizações e novos jogos grátis",
                 ].map((t) => (
                   <li key={t} className="flex items-start gap-2 text-xs text-foreground">
                     <Check className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
@@ -319,15 +330,22 @@ const Index = () => {
                   </li>
                 ))}
               </ul>
-              <p className="text-center mb-3">
+
+              <div className="text-center mb-1">
+                <span className="text-muted-foreground text-[10px] line-through mr-1">R$47</span>
                 <span className="text-2xl font-extrabold text-foreground">R$27</span>
-              </p>
+              </div>
+              <p className="text-muted-foreground text-[9px] text-center mb-3">Pagamento único • Acesso imediato</p>
+
               <a
                 href="#"
                 className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-sm py-3 rounded-lg hover:brightness-110 transition-all"
               >
-                Instalar automaticamente
+                Desbloquear por R$27
               </a>
+              <p className="text-muted-foreground text-[9px] mt-2 flex items-center justify-center gap-1">
+                <ShieldCheck className="w-3 h-3" /> Compra segura • Entrega imediata
+              </p>
             </div>
           </div>
         </DialogContent>
