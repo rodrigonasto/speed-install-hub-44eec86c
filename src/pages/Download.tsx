@@ -1,13 +1,139 @@
 import { useState } from "react";
-import { Download, ShieldCheck, ExternalLink } from "lucide-react";
+import { Download, ShieldCheck, ExternalLink, Star } from "lucide-react";
 
 const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
+interface StepItem {
+  step: number;
+  title: string;
+  fileName: string;
+  buttonLabel: string;
+  description: string;
+  link: string;
+  isMain?: boolean;
+}
+
+const androidSteps: StepItem[] = [
+  {
+    step: 1,
+    title: "Baixar o emulador",
+    fileName: "NetherSX2",
+    buttonLabel: "Baixar emulador NetherSX2",
+    description: "Aplicativo que permite rodar jogos de PS2 no celular.",
+    link: "#",
+  },
+  {
+    step: 2,
+    title: "Baixar BIOS",
+    fileName: "BIOS PS2",
+    buttonLabel: "Baixar BIOS",
+    description: "Arquivo necessário para o funcionamento do emulador.",
+    link: "#",
+  },
+  {
+    step: 3,
+    title: "Baixar o jogo (principal)",
+    fileName: "Need for Speed Underground 2",
+    buttonLabel: "Baixar o jogo (arquivo principal)",
+    description: "Arquivo do jogo para rodar no emulador.",
+    link: "#",
+    isMain: true,
+  },
+];
+
+const iosSteps: StepItem[] = [
+  {
+    step: 1,
+    title: "Baixar aplicativo de extração",
+    fileName: "iRAR",
+    buttonLabel: "Baixar iRAR",
+    description: "Necessário para extrair os arquivos do jogo.",
+    link: "#",
+  },
+  {
+    step: 2,
+    title: "Baixar o emulador",
+    fileName: "PPSSPP",
+    buttonLabel: "Baixar emulador PPSSPP",
+    description: "Aplicativo que permite rodar o jogo no celular.",
+    link: "#",
+  },
+  {
+    step: 3,
+    title: "Baixar o jogo (principal)",
+    fileName: "Need for Speed Underground 2",
+    buttonLabel: "Baixar o jogo (arquivo principal)",
+    description: "Arquivo do jogo para rodar no emulador.",
+    link: "#",
+    isMain: true,
+  },
+];
+
+const StepCard = ({ item }: { item: StepItem }) => (
+  <div
+    className={`relative rounded-2xl p-5 transition-all ${
+      item.isMain
+        ? "bg-background border-2 border-primary shadow-[0_0_24px_-4px_hsl(var(--primary)/0.35)]"
+        : "bg-background border border-border"
+    }`}
+  >
+    {/* Badge principal */}
+    {item.isMain && (
+      <div className="absolute -top-3 left-4 inline-flex items-center gap-1.5 bg-primary text-primary-foreground text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-lg">
+        <Star className="w-3 h-3 fill-current" />
+        Arquivo Principal
+      </div>
+    )}
+
+    {/* Step number + title */}
+    <div className="flex items-center gap-3 mb-2">
+      <span
+        className={`flex items-center justify-center w-8 h-8 rounded-full text-xs font-black shrink-0 ${
+          item.isMain
+            ? "bg-primary text-primary-foreground"
+            : "bg-secondary text-secondary-foreground"
+        }`}
+      >
+        {item.step}
+      </span>
+      <h4 className="text-sm font-bold text-foreground">{item.title}</h4>
+    </div>
+
+    {/* File name */}
+    <p className="text-foreground/80 text-sm font-semibold ml-11 mb-1">{item.fileName}</p>
+
+    {/* Description */}
+    <p className="text-muted-foreground text-xs ml-11 mb-4">{item.description}</p>
+
+    {/* Hint for main */}
+    {item.isMain && (
+      <p className="text-primary text-[11px] font-semibold ml-11 mb-2">
+        Este é o arquivo do jogo
+      </p>
+    )}
+
+    {/* Download button */}
+    <a
+      href={item.link}
+      className={`ml-11 inline-flex items-center gap-2 font-bold text-sm px-5 py-3 rounded-xl transition-all ${
+        item.isMain
+          ? "bg-primary text-primary-foreground hover:brightness-110 shadow-[0_0_16px_-2px_hsl(var(--primary)/0.4)]"
+          : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+      }`}
+    >
+      <Download className="w-4 h-4" />
+      {item.buttonLabel}
+    </a>
+  </div>
+);
 
 const DownloadPage = () => {
   const [platform, setPlatform] = useState<"android" | "ios">(() => {
     const ua = navigator.userAgent || "";
     return /iPhone|iPad|iPod/i.test(ua) ? "ios" : "android";
   });
+
+  const steps = platform === "android" ? androidSteps : iosSteps;
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
@@ -23,7 +149,7 @@ const DownloadPage = () => {
             Seu download está pronto 🎮
           </h1>
           <p className="text-muted-foreground text-sm sm:text-base mb-6">
-            Clique abaixo para baixar <span className="text-amber-400 font-semibold">Need for Speed Underground 2</span> e começar a jogar no celular.
+            Clique abaixo para baixar <span className="text-primary font-semibold">Need for Speed Underground 2</span> e começar a jogar no celular.
           </p>
 
           <button
@@ -39,7 +165,7 @@ const DownloadPage = () => {
         </div>
       </section>
 
-      {/* ─── TUTORIAL + ARQUIVOS (unificado por plataforma) ─── */}
+      {/* ─── TUTORIAL + ARQUIVOS ─── */}
       <section id="tutorial" className="px-5 py-10 bg-card">
         <div className="container max-w-lg mx-auto">
           <h2 className="text-lg font-bold text-foreground text-center mb-1">
@@ -83,61 +209,40 @@ const DownloadPage = () => {
               allowFullScreen
             />
           </div>
-          <p className="text-muted-foreground text-xs text-center mb-8">
+          <p className="text-muted-foreground text-xs text-center mb-10">
             ⚠️ O vídeo usa outro jogo como exemplo, mas o processo de instalação é o mesmo.
           </p>
 
-          {/* Arquivos necessários */}
+          {/* ─── ARQUIVOS NECESSÁRIOS ─── */}
           <h3 className="text-base font-bold text-foreground text-center mb-1">
             Arquivos necessários para instalar
           </h3>
-          <p className="text-muted-foreground text-sm text-center mb-5">
-            Baixe todos os arquivos para o seu sistema.
+          <p className="text-muted-foreground text-sm text-center mb-6">
+            Siga os passos abaixo para instalar o jogo corretamente no seu celular.
           </p>
 
-          {/* Android Files */}
-          {platform === "android" && (
-            <div className="space-y-3">
-              {[
-                { name: "NetherSX2", link: "#" },
-                { name: "BIOS", link: "#" },
-                { name: "Need for Speed Underground 2", link: "#" },
-              ].map((item) => (
-                <div key={item.name} className="flex items-center justify-between bg-background border border-border rounded-xl p-4">
-                  <span className="text-sm font-semibold text-foreground">{item.name}</span>
-                  <a
-                    href={item.link}
-                    className="inline-flex items-center gap-1.5 bg-primary text-primary-foreground font-bold text-xs px-4 py-2 rounded-lg hover:brightness-110 transition-all"
-                  >
-                    <Download className="w-3.5 h-3.5" />
-                    Baixar
-                  </a>
-                </div>
-              ))}
-            </div>
-          )}
+          {/* Platform label */}
+          <div className="flex items-center gap-2 mb-5">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-primary">
+              {platform === "android" ? "🤖 Android" : "🍎 iPhone"}
+            </span>
+            <div className="flex-1 h-px bg-border" />
+          </div>
 
-          {/* iOS Files */}
-          {platform === "ios" && (
-            <div className="space-y-3">
-              {[
-                { name: "iRAR", link: "#" },
-                { name: "PPSSPP", link: "#" },
-                { name: "Need for Speed Underground 2", link: "#" },
-              ].map((item) => (
-                <div key={item.name} className="flex items-center justify-between bg-background border border-border rounded-xl p-4">
-                  <span className="text-sm font-semibold text-foreground">{item.name}</span>
-                  <a
-                    href={item.link}
-                    className="inline-flex items-center gap-1.5 bg-primary text-primary-foreground font-bold text-xs px-4 py-2 rounded-lg hover:brightness-110 transition-all"
-                  >
-                    <Download className="w-3.5 h-3.5" />
-                    Baixar
-                  </a>
-                </div>
-              ))}
-            </div>
-          )}
+          {/* Step cards */}
+          <div className="space-y-5">
+            {steps.map((item) => (
+              <StepCard key={item.step} item={item} />
+            ))}
+          </div>
+
+          {/* Toggle link */}
+          <button
+            onClick={() => setPlatform(platform === "android" ? "ios" : "android")}
+            className="mt-6 w-full text-center text-muted-foreground text-xs hover:text-primary transition-colors"
+          >
+            {platform === "android" ? "Usa iPhone? Ver versão iOS →" : "Usa Android? Ver versão Android →"}
+          </button>
         </div>
       </section>
 
