@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,47 +6,37 @@
 
 @layer base {
   :root {
-    --background: 220 20% 6%;
-    --foreground: 210 20% 95%;
+    --background: 240 6% 7%;
+    --foreground: 0 0% 96%;
 
-    --card: 220 18% 10%;
-    --card-foreground: 210 20% 92%;
+    --card: 240 5% 11%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 220 18% 10%;
-    --popover-foreground: 210 20% 92%;
+    --popover: 240 5% 11%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 185 100% 50%;
-    --primary-foreground: 220 20% 6%;
+    --primary: 142 72% 50%;
+    --primary-foreground: 240 6% 7%;
 
-    --secondary: 280 100% 60%;
-    --secondary-foreground: 210 20% 98%;
+    --secondary: 240 5% 16%;
+    --secondary-foreground: 0 0% 90%;
 
-    --muted: 220 15% 16%;
-    --muted-foreground: 215 15% 70%;
+    --muted: 240 4% 14%;
+    --muted-foreground: 240 5% 65%;
 
-    --accent: 185 100% 50%;
-    --accent-foreground: 220 20% 6%;
+    --accent: 142 72% 50%;
+    --accent-foreground: 240 6% 7%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 185 100% 50%;
+    --border: 240 4% 18%;
+    --input: 240 4% 18%;
+    --ring: 142 72% 50%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    --neon-cyan: 185 100% 50%;
-    --neon-magenta: 300 100% 60%;
-    --neon-green: 140 100% 50%;
-
-    --gradient-neon: linear-gradient(135deg, hsl(185 100% 50%), hsl(280 100% 60%));
-    --gradient-card: linear-gradient(180deg, hsl(220 18% 12%), hsl(220 18% 8%));
-    --shadow-neon: 0 0 20px hsl(185 100% 50% / 0.3), 0 0 60px hsl(185 100% 50% / 0.1);
-    --shadow-neon-strong: 0 0 30px hsl(185 100% 50% / 0.5), 0 0 80px hsl(185 100% 50% / 0.2);
-
-    --font-display: 'Orbitron', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
   }
 }
 
@@ -56,41 +46,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-  }
-}
-
-@layer utilities {
-  .text-glow {
-    text-shadow: 0 0 10px hsl(185 100% 50% / 0.6), 0 0 30px hsl(185 100% 50% / 0.3);
-  }
-
-  .text-glow-magenta {
-    text-shadow: 0 0 10px hsl(300 100% 60% / 0.6), 0 0 30px hsl(300 100% 60% / 0.3);
-  }
-
-  .box-glow {
-    box-shadow: var(--shadow-neon);
-  }
-
-  .box-glow-strong {
-    box-shadow: var(--shadow-neon-strong);
-  }
-
-  .bg-neon-gradient {
-    background: var(--gradient-neon);
-  }
-
-  .bg-card-gradient {
-    background: var(--gradient-card);
-  }
-
-  .neon-border {
-    border: 1px solid hsl(185 100% 50% / 0.3);
   }
 }
