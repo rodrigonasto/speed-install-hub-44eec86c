@@ -341,7 +341,7 @@ const Index = () => {
             className="mt-6 mx-auto flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors animate-bounce"
             aria-label="Ver mais"
           >
-            <ChevronDown className="w-6 h-6" />
+            <ChevronDown className="w-10 h-10" />
           </button>
         </div>
       </section>
