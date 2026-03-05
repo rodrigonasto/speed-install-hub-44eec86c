@@ -321,7 +321,7 @@ const DownloadPage = () => {
       {/* ─── FOOTER ─── */}
       <footer className="px-5 py-6 border-t border-border">
         <p className="text-center text-muted-foreground text-[10px]">
-          JogosMobileClub — comunidade para quem gosta de jogos clássicos no celular.
+          Conteúdo criado para ajudar jogadores a baixar e instalar Need for Speed Underground no celular sem complicação.
         </p>
       </footer>
     </div>
