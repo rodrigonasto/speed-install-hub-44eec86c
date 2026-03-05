@@ -90,14 +90,14 @@ const packGames = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       {/* HERO */}
       <section className="relative min-h-[90vh] flex items-end justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroImage} alt="Need for Speed Underground" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
         </div>
-        <div className="relative z-10 container text-center px-4 pb-16 pt-32">
+        <div className="relative z-10 container text-center px-5 pb-12 sm:pb-16 pt-24 sm:pt-32">
           <span className="inline-block text-neon-green font-bold text-xs uppercase tracking-[0.2em] mb-4">
             🎮 Download gratuito
           </span>
@@ -110,12 +110,12 @@ const Index = () => {
           </p>
           <button
             onClick={() => scrollToSection("download")}
-            className="inline-flex items-center gap-3 bg-neon-gradient px-10 py-4 rounded-xl font-display font-bold text-primary-foreground text-base sm:text-lg box-glow-strong hover:scale-105 transition-transform duration-200"
+            className="inline-flex items-center gap-3 bg-neon-gradient px-8 sm:px-10 py-4 rounded-xl font-display font-bold text-primary-foreground text-sm sm:text-lg box-glow-strong hover:scale-105 transition-transform duration-200 w-full sm:w-auto justify-center"
           >
             <Download className="w-5 h-5" />
             Baixar grátis
           </button>
-          <div className="mt-6 flex items-center justify-center gap-4 text-foreground/50 text-xs">
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-foreground/50 text-[10px] sm:text-xs">
             <span className="flex items-center gap-1"><Shield className="w-3 h-3" /> Seguro</span>
             <span>•</span>
             <span>Android & iPhone</span>
@@ -126,9 +126,9 @@ const Index = () => {
       </section>
 
       {/* SCREENSHOTS */}
-      <section className="py-14 px-4">
+      <section className="py-10 sm:py-14 px-4">
         <div className="container max-w-4xl mx-auto">
-          <div className="grid grid-cols-2 gap-3 sm:gap-6">
+          <div className="grid grid-cols-2 gap-2 sm:gap-6">
             <img src={screenshot1} alt="Gameplay NFS Underground" className="rounded-xl neon-border box-glow w-full" />
             <img src={screenshot2} alt="Customização NFS Underground" className="rounded-xl neon-border box-glow w-full" />
           </div>
@@ -139,7 +139,7 @@ const Index = () => {
       </section>
 
       {/* VIDEO TUTORIAL */}
-      <section id="tutorial" className="py-16 px-4 bg-card-gradient">
+      <section id="tutorial" className="py-12 sm:py-16 px-4 bg-card-gradient">
         <div className="container max-w-3xl mx-auto text-center">
           <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-primary text-glow mb-3">
             Tutorial de instalação
@@ -163,7 +163,7 @@ const Index = () => {
       </section>
 
       {/* DOWNLOAD GRATUITO */}
-      <section id="download" className="py-16 px-4">
+      <section id="download" className="py-12 sm:py-16 px-4">
         <div className="container max-w-xl mx-auto text-center">
           <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-primary text-glow mb-3">
             Download gratuito
@@ -173,7 +173,7 @@ const Index = () => {
           </p>
           <a
             href="#"
-            className="inline-flex items-center gap-3 bg-neon-gradient px-12 py-5 rounded-xl font-display font-black text-primary-foreground text-lg sm:text-xl box-glow-strong hover:scale-105 transition-transform duration-200 animate-pulse-neon"
+            className="inline-flex items-center gap-3 bg-neon-gradient px-10 sm:px-12 py-4 sm:py-5 rounded-xl font-display font-black text-primary-foreground text-base sm:text-xl box-glow-strong hover:scale-105 transition-transform duration-200 animate-pulse-neon w-full sm:w-auto justify-center"
           >
             <Download className="w-7 h-7" />
             Baixar agora
@@ -185,7 +185,7 @@ const Index = () => {
       </section>
 
       {/* COMPARAÇÃO MANUAL vs AUTOMÁTICO */}
-      <section className="py-16 px-4 bg-card-gradient">
+      <section className="py-12 sm:py-16 px-4 bg-card-gradient">
         <div className="container max-w-2xl mx-auto">
           <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-center text-neon-magenta text-glow-magenta mb-4">
             Quer evitar instalação manual?
@@ -234,11 +234,11 @@ const Index = () => {
               },
             ].map(({ manual, manualIcon: MI, auto, autoIcon: AI }, i) => (
               <div key={i} className="grid grid-cols-2">
-                <div className="bg-muted/10 border-b border-r border-border p-4 sm:p-5 flex items-center gap-2.5">
+                <div className="bg-muted/10 border-b border-r border-border p-3 sm:p-5 flex items-center gap-2">
                   <MI className="w-4 h-4 text-destructive/70 flex-shrink-0" />
                   <span className="text-muted-foreground text-xs sm:text-sm">{manual}</span>
                 </div>
-                <div className="bg-primary/5 border-b border-border p-4 sm:p-5 flex items-center gap-2.5">
+                <div className="bg-primary/5 border-b border-border p-3 sm:p-5 flex items-center gap-2">
                   <AI className="w-4 h-4 text-neon-green flex-shrink-0" />
                   <span className="text-foreground text-xs sm:text-sm font-medium">{auto}</span>
                 </div>
@@ -260,7 +260,7 @@ const Index = () => {
           <div className="text-center mt-8">
             <button
               onClick={() => scrollToSection("premium")}
-              className="inline-flex items-center gap-2 bg-neon-gradient px-8 py-3.5 rounded-xl font-display font-bold text-primary-foreground text-sm hover:scale-105 transition-transform duration-200 box-glow"
+              className="inline-flex items-center gap-2 bg-neon-gradient px-8 py-3.5 rounded-xl font-display font-bold text-primary-foreground text-sm hover:scale-105 transition-transform duration-200 box-glow w-full sm:w-auto justify-center"
             >
               <Zap className="w-4 h-4" />
               Quero a versão automática
@@ -270,7 +270,7 @@ const Index = () => {
       </section>
 
       {/* JOGOS DO PACK */}
-      <section className="py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="container max-w-4xl mx-auto">
           <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-primary text-glow text-center mb-3">
             +80 jogos clássicos inclusos no pack
@@ -278,7 +278,7 @@ const Index = () => {
           <p className="text-center text-muted-foreground text-sm mb-10">
             Todos esses jogos vêm prontos para instalar com 1 clique no celular
           </p>
-          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 gap-2 sm:gap-3">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 sm:gap-3">
             {packGames.map((game) => (
               <div key={game.name} className="group relative">
                 <div className="aspect-[3/4] rounded-lg overflow-hidden neon-border transition-all duration-200 group-hover:box-glow group-hover:scale-105">
@@ -302,9 +302,9 @@ const Index = () => {
       </section>
 
       {/* OFERTA PREMIUM */}
-      <section id="premium" className="py-16 px-4 bg-card-gradient">
+      <section id="premium" className="py-12 sm:py-16 px-4 bg-card-gradient">
         <div className="container max-w-md mx-auto">
-          <div className="rounded-2xl neon-border box-glow-strong p-8 sm:p-10 bg-muted/20 backdrop-blur text-center relative overflow-hidden">
+          <div className="rounded-2xl neon-border box-glow-strong p-6 sm:p-10 bg-muted/20 backdrop-blur text-center relative overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-1 bg-neon-gradient" />
             <div className="inline-block bg-neon-gradient px-4 py-1 rounded-full font-display text-xs font-bold text-primary-foreground mb-6 uppercase tracking-wider">
               🔥 Mais vendido
@@ -334,7 +334,7 @@ const Index = () => {
             <p className="text-muted-foreground text-xs mb-6">Pagamento único • Acesso imediato</p>
             <a
               href="#"
-              className="block w-full bg-neon-gradient py-4 rounded-xl font-display font-bold text-primary-foreground text-base hover:scale-[1.02] transition-transform duration-200 box-glow-strong"
+              className="block w-full bg-neon-gradient py-4 rounded-xl font-display font-bold text-primary-foreground text-sm sm:text-base hover:scale-[1.02] transition-transform duration-200 box-glow-strong"
             >
               Desbloquear agora por R$27
             </a>
