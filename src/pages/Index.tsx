@@ -504,9 +504,6 @@ const Index = () => {
             <br />
             <span className="italic text-amber-400">Jogue Para Sempre!</span>
           </h2>
-          <p className="text-sm sm:text-base text-muted-foreground text-center mb-6">
-            Pagamento <span className="text-primary font-semibold underline">único</span> • Sem mensalidades • Download <span className="text-primary font-semibold italic">imediato</span>
-          </p>
 
           {/* Trust badges - card style */}
           <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-8 max-w-md mx-auto">
