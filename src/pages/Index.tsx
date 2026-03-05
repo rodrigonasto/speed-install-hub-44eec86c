@@ -268,8 +268,8 @@ const Index = () => {
 
       {/* ─── MODAL DE DOWNLOAD ─── */}
       <Dialog open={downloadModalOpen} onOpenChange={setDownloadModalOpen}>
-        <DialogContent className="max-w-md sm:max-w-lg p-0 gap-0 border-border bg-card overflow-hidden">
-          <DialogHeader className="p-5 pb-3 text-center">
+        <DialogContent className="max-w-md sm:max-w-lg p-0 gap-0 border-border bg-card max-h-[90vh] overflow-y-auto">
+          <DialogHeader className="p-5 pb-3 text-center sticky top-0 bg-card z-10">
             <DialogTitle className="text-lg font-bold text-foreground">Seu download está pronto</DialogTitle>
             <DialogDescription className="text-sm text-muted-foreground">
               Escolha como deseja instalar o jogo:
