@@ -272,7 +272,9 @@ const Index = () => {
 
           {/* Title */}
           <h1 className="text-2xl sm:text-3xl font-extrabold text-foreground leading-tight mb-2">
-             Aprenda como jogar Need for Speed Underground 2 no celular
+             Aprenda como jogar{" "}
+             <span className="text-amber-400">Need for Speed Underground 2</span>{" "}
+             no celular
           </h1>
           <p className="text-muted-foreground text-sm sm:text-base mb-6">
             Baixe grátis e instale em poucos minutos para começar a jogar agora.
@@ -511,7 +513,7 @@ const Index = () => {
             {[
               { icon: "💰", label: "Pagamento", highlight: "Único" },
               { icon: "♾️", label: "Acesso", highlight: "Vitalício" },
-              { icon: "⚡", label: "Entrega", highlight: "Imediata" },
+              { icon: "⚡", label: "Download", highlight: "Imediato" },
             ].map((item) => (
               <div key={item.label} className="bg-background border border-border rounded-xl p-3 text-center">
                 <span className="text-lg block mb-1">{item.icon}</span>
