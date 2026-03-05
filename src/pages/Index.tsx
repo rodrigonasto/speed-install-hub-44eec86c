@@ -294,27 +294,26 @@ const Index = () => {
       {/* ─── JOGOS DO PACK ─── */}
       <section id="jogos" className="px-5 py-10 bg-card">
         <div className="container max-w-2xl mx-auto">
-          {/* Header like reference */}
+          {/* Header */}
           <h2 className="text-xl sm:text-2xl font-extrabold text-foreground text-center mb-2">
             Escolha Seu Jogo Favorito e
             <br />
             <span className="text-primary">Jogue Para Sempre!</span>
           </h2>
-          <div className="flex items-center justify-center gap-3 sm:gap-5 mb-8">
-            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-              <span className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary text-[10px]">💰</span>
-              <span>Pagamento <span className="text-foreground font-semibold">único</span></span>
-            </div>
-            <div className="w-px h-4 bg-border" />
-            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-              <span className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary text-[10px]">♾️</span>
-              <span>Sem mensalidades</span>
-            </div>
-            <div className="w-px h-4 bg-border" />
-            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-              <span className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary text-[10px]">⚡</span>
-              <span>Download <span className="text-foreground font-semibold">imediato</span></span>
-            </div>
+
+          {/* Trust badges - card style */}
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-8 max-w-md mx-auto">
+            {[
+              { icon: "💰", label: "Pagamento", highlight: "Único" },
+              { icon: "♾️", label: "Acesso", highlight: "Vitalício" },
+              { icon: "⚡", label: "Entrega", highlight: "Imediata" },
+            ].map((item) => (
+              <div key={item.label} className="bg-background border border-border rounded-xl p-3 text-center">
+                <span className="text-lg block mb-1">{item.icon}</span>
+                <span className="text-[10px] text-muted-foreground block">{item.label}</span>
+                <span className="text-xs font-bold text-primary">{item.highlight}</span>
+              </div>
+            ))}
           </div>
 
           {/* Search bar */}
