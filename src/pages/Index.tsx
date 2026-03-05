@@ -2,6 +2,13 @@ import { useState, useMemo, useEffect } from "react";
 import nfsCover from "@/assets/nfs-cover.png";
 import packImage from "@/assets/pack-image.png";
 import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star, Search } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
@@ -146,6 +153,7 @@ const SocialProofBadge = () => {
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [downloadModalOpen, setDownloadModalOpen] = useState(false);
 
   const filteredCategories = useMemo(() => {
     const query = searchQuery.toLowerCase().trim();
@@ -245,18 +253,85 @@ const Index = () => {
           <p className="text-muted-foreground text-sm mb-6">
             Clique abaixo para baixar o jogo.
           </p>
-          <a
-            href="#"
+          <button
+            onClick={() => setDownloadModalOpen(true)}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-base px-10 py-4 rounded-xl hover:brightness-110 transition-all"
           >
             <Download className="w-5 h-5" />
             Baixar agora
-          </a>
+          </button>
           <p className="text-muted-foreground text-[11px] mt-3 flex items-center justify-center gap-1">
             <ShieldCheck className="w-3 h-3" /> Download seguro e gratuito
           </p>
         </div>
       </section>
+
+      {/* ─── MODAL DE DOWNLOAD ─── */}
+      <Dialog open={downloadModalOpen} onOpenChange={setDownloadModalOpen}>
+        <DialogContent className="max-w-md sm:max-w-lg p-0 gap-0 border-border bg-card overflow-hidden">
+          <DialogHeader className="p-5 pb-3 text-center">
+            <DialogTitle className="text-lg font-bold text-foreground">Seu download está pronto</DialogTitle>
+            <DialogDescription className="text-sm text-muted-foreground">
+              Escolha como deseja instalar o jogo:
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 px-5 pb-5">
+            {/* Card 1 — Manual */}
+            <div className="rounded-xl border border-border bg-background p-4 flex flex-col">
+              <h3 className="text-sm font-bold text-foreground mb-3">Instalação manual</h3>
+              <ul className="space-y-2 mb-4 flex-1">
+                {[
+                  "Instalação passo a passo",
+                  "Requer configuração manual",
+                  "Apenas este jogo",
+                ].map((t) => (
+                  <li key={t} className="flex items-start gap-2 text-xs text-muted-foreground">
+                    <X className="w-3.5 h-3.5 text-destructive flex-shrink-0 mt-0.5" />
+                    {t}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#"
+                className="w-full inline-flex items-center justify-center gap-2 border border-border text-foreground font-semibold text-xs py-2.5 rounded-lg hover:bg-muted transition-colors"
+              >
+                Baixar manualmente
+              </a>
+            </div>
+
+            {/* Card 2 — Automático (recomendado) */}
+            <div className="rounded-xl border-2 border-primary bg-primary/5 p-4 flex flex-col relative">
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full mb-2 self-start">
+                ⭐ Recomendado
+              </span>
+              <h3 className="text-sm font-bold text-foreground mb-3">Instalação automática</h3>
+              <ul className="space-y-2 mb-4 flex-1">
+                {[
+                  "Instala em 1 clique",
+                  "Jogo já configurado",
+                  "Pack com vários jogos",
+                  "Sem erros ou arquivos faltando",
+                ].map((t) => (
+                  <li key={t} className="flex items-start gap-2 text-xs text-foreground">
+                    <Check className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
+                    {t}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-center mb-3">
+                <span className="text-2xl font-extrabold text-foreground">R$27</span>
+              </p>
+              <a
+                href="#"
+                className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-sm py-3 rounded-lg hover:brightness-110 transition-all"
+              >
+                Instalar automaticamente
+              </a>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* ─── COMPARAÇÃO ─── */}
       <section className="px-5 py-10">
