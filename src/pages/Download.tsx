@@ -224,20 +224,25 @@ const DownloadPage = () => {
 
           {/* ─── ATALHO PREMIUM (soft sell) ─── */}
           <div className="mt-8 rounded-2xl border border-border bg-secondary/40 p-5">
-            <p className="text-muted-foreground text-xs mb-2">
-              Não quer instalar manualmente?
-            </p>
-            <h4 className="text-sm font-bold text-foreground mb-1">
-              Instalação automática + Biblioteca gamer
-            </h4>
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-4 h-4 text-primary" />
+              <h4 className="text-sm font-bold text-foreground">
+                Instalação automática <span className="text-muted-foreground font-normal text-xs">(recomendado)</span>
+              </h4>
+            </div>
+
             <p className="text-muted-foreground text-xs mb-4">
-              Receba o jogo pronto para rodar, sem configuração, com acesso a +100 jogos clássicos.
+              Pare de perder tempo com instalação manual.
+              <br />
+              Com a versão automática você recebe:
             </p>
-            <ul className="space-y-1.5 mb-4">
+
+            <ul className="space-y-2 mb-5">
               {[
-                "Jogo instalado em 1 clique",
-                "Sem erros de configuração",
-                "+100 jogos clássicos inclusos",
+                "Instalação em 1 clique",
+                "Jogo já configurado",
+                "Sem erros ou arquivos faltando",
+                "Biblioteca com +100 jogos clássicos",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2 text-xs text-foreground/80">
                   <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0" />
@@ -245,12 +250,23 @@ const DownloadPage = () => {
                 </li>
               ))}
             </ul>
+
+            {/* Preço */}
+            <div className="flex items-baseline gap-2 mb-1">
+              <span className="text-muted-foreground text-sm line-through">R$97</span>
+              <span className="text-foreground text-2xl font-extrabold">R$47</span>
+            </div>
+            <p className="text-muted-foreground text-[11px] mb-4">
+              Pagamento único • Acesso imediato
+            </p>
+
             <a
-              href="#"
-              className="w-full inline-flex items-center justify-center gap-2 bg-secondary text-secondary-foreground font-semibold text-sm py-3 rounded-xl hover:bg-secondary/80 transition-all"
+              href="https://pay.lowify.com.br/checkout.php?product_id=KHWzbI"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-sm py-3.5 rounded-xl hover:brightness-110 transition-all"
             >
-              <Zap className="w-4 h-4" />
-              Ver opção premium — R$47
+              🚀 Instalar automaticamente e jogar agora
             </a>
           </div>
 
