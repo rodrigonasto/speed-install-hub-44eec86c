@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Download, ShieldCheck, ExternalLink, Star } from "lucide-react";
+import { Download, ShieldCheck, ExternalLink, Star, Zap, CheckCircle } from "lucide-react";
 
 const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
@@ -220,6 +220,38 @@ const DownloadPage = () => {
             {steps.map((item) => (
               <StepCard key={item.step} item={item} />
             ))}
+          </div>
+
+          {/* ─── ATALHO PREMIUM (soft sell) ─── */}
+          <div className="mt-8 rounded-2xl border border-border bg-secondary/40 p-5">
+            <p className="text-muted-foreground text-xs mb-2">
+              Não quer instalar manualmente?
+            </p>
+            <h4 className="text-sm font-bold text-foreground mb-1">
+              Instalação automática + Biblioteca gamer
+            </h4>
+            <p className="text-muted-foreground text-xs mb-4">
+              Receba o jogo pronto para rodar, sem configuração, com acesso a +100 jogos clássicos.
+            </p>
+            <ul className="space-y-1.5 mb-4">
+              {[
+                "Jogo instalado em 1 clique",
+                "Sem erros de configuração",
+                "+100 jogos clássicos inclusos",
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-2 text-xs text-foreground/80">
+                  <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="#"
+              className="w-full inline-flex items-center justify-center gap-2 bg-secondary text-secondary-foreground font-semibold text-sm py-3 rounded-xl hover:bg-secondary/80 transition-all"
+            >
+              <Zap className="w-4 h-4" />
+              Ver opção premium — R$47
+            </a>
           </div>
 
           {/* Toggle link */}
