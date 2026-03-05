@@ -151,7 +151,126 @@ const SocialProofBadge = () => {
   );
 };
 
-const Index = () => {
+const TutorialSection = () => {
+  const [platform, setPlatform] = useState<"android" | "ios">("android");
+
+  return (
+    <section id="tutorial" className="px-5 pb-10">
+      <div className="container max-w-lg mx-auto">
+        <h2 className="text-lg font-bold text-foreground text-center mb-1">
+          📱 Como instalar no celular
+        </h2>
+        <p className="text-muted-foreground text-sm text-center mb-5">
+          Escolha seu sistema para ver o tutorial correto.
+        </p>
+
+        {/* Platform Tabs */}
+        <div className="grid grid-cols-2 gap-3 mb-6">
+          <button
+            onClick={() => setPlatform("android")}
+            className={`flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all border ${
+              platform === "android"
+                ? "bg-primary text-primary-foreground border-primary"
+                : "bg-card text-muted-foreground border-border hover:border-primary/50"
+            }`}
+          >
+            <span className="text-xl">🤖</span> Android
+          </button>
+          <button
+            onClick={() => setPlatform("ios")}
+            className={`flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all border ${
+              platform === "ios"
+                ? "bg-primary text-primary-foreground border-primary"
+                : "bg-card text-muted-foreground border-border hover:border-primary/50"
+            }`}
+          >
+            <span className="text-xl">🍎</span> iPhone
+          </button>
+        </div>
+
+        {/* Android Content */}
+        {platform === "android" && (
+          <div className="space-y-5">
+            <h3 className="text-base font-bold text-foreground text-center">Tutorial Android</h3>
+            <div className="aspect-video rounded-2xl overflow-hidden bg-card border border-border">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/VIDEO_ID_ANDROID"
+                title="Tutorial Android"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <p className="text-muted-foreground text-xs text-center">
+              ⚠️ O tutorial usa outro jogo como exemplo, mas o processo de instalação é o mesmo.
+            </p>
+
+            <div className="bg-card border border-border rounded-xl p-4 space-y-3">
+              <h4 className="text-sm font-bold text-foreground text-center">Arquivos necessários</h4>
+              {[
+                { label: "1️⃣ NetherSX2", link: "#" },
+                { label: "2️⃣ BIOS", link: "#" },
+                { label: "3️⃣ Jogo", link: "#" },
+              ].map((item) => (
+                <a
+                  key={item.label}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between w-full px-4 py-2.5 rounded-lg bg-green-600/15 border border-green-500/30 text-green-400 font-semibold text-sm hover:bg-green-600/25 transition-colors"
+                >
+                  <span>{item.label}</span>
+                  <span className="text-xs">Baixar →</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* iOS Content */}
+        {platform === "ios" && (
+          <div className="space-y-5">
+            <h3 className="text-base font-bold text-foreground text-center">Tutorial iPhone (iOS)</h3>
+            <div className="aspect-video rounded-2xl overflow-hidden bg-card border border-border">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/VIDEO_ID_IOS"
+                title="Tutorial iPhone"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <p className="text-muted-foreground text-xs text-center">
+              ⚠️ O tutorial usa outro jogo como exemplo, mas o processo de instalação é o mesmo.
+            </p>
+
+            <div className="bg-card border border-border rounded-xl p-4 space-y-3">
+              <h4 className="text-sm font-bold text-foreground text-center">Arquivos necessários</h4>
+              {[
+                { label: "1️⃣ iRAR", link: "#" },
+                { label: "2️⃣ PPSSPP", link: "#" },
+                { label: "3️⃣ Baixe o jogo", link: "#" },
+              ].map((item) => (
+                <a
+                  key={item.label}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between w-full px-4 py-2.5 rounded-lg bg-green-600/15 border border-green-500/30 text-green-400 font-semibold text-sm hover:bg-green-600/25 transition-colors"
+                >
+                  <span>{item.label}</span>
+                  <span className="text-xs">Clique aqui →</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+
   const [searchQuery, setSearchQuery] = useState("");
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
 
