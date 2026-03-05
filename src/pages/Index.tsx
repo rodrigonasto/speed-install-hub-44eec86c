@@ -334,22 +334,13 @@ const Index = () => {
           <p className="text-muted-foreground text-[11px] mt-3 flex items-center justify-center gap-1">
             <ShieldCheck className="w-3 h-3" /> Download seguro e gratuito
           </p>
-
-          {/* Seta para próxima seção */}
-          <button
-            onClick={() => scrollTo("comparativo")}
-            className="mt-6 mx-auto flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors animate-bounce"
-            aria-label="Ver mais"
-          >
-            <ArrowDown className="w-10 h-10" />
-          </button>
         </div>
       </section>
 
       {/* ─── MODAL DE DOWNLOAD ─── */}
       <Dialog open={downloadModalOpen} onOpenChange={setDownloadModalOpen}>
-        <DialogContent className="max-w-md sm:max-w-lg p-0 gap-0 border-border bg-card max-h-[90vh] overflow-y-auto">
-          <DialogHeader className="p-5 pb-3 text-center sticky top-0 bg-card z-10">
+        <DialogContent className="max-w-md sm:max-w-lg p-0 gap-0 border-border bg-card max-h-[90vh] overflow-y-auto [&>button]:z-20 [&>button]:top-5 [&>button]:right-5 [&>button]:text-muted-foreground">
+          <DialogHeader className="p-5 pb-3 pr-12 text-center sticky top-0 bg-card z-10">
             <DialogTitle className="text-lg font-bold text-foreground">Seu download está pronto</DialogTitle>
             <DialogDescription className="text-sm text-muted-foreground">
               Escolha como deseja instalar o jogo:
