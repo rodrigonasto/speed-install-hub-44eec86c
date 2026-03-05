@@ -120,14 +120,17 @@ const SocialProofBadge = () => {
   const [count, setCount] = useState(Math.floor(Math.random() * 15) + 18);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCount(prev => {
-        const change = Math.random() > 0.4 ? 1 : -1;
-        const next = prev + change;
-        return Math.max(14, Math.min(47, next));
-      });
-    }, Math.random() * 3000 + 2500);
-    return () => clearInterval(interval);
+    const tick = () => {
+      const delay = Math.random() * 8000 + 5000;
+      setTimeout(() => {
+        setCount(prev => {
+          const bump = Math.random() > 0.15 ? 1 : 0;
+          return Math.min(52, prev + bump);
+        });
+        tick();
+      }, delay);
+    };
+    tick();
   }, []);
 
   return (
