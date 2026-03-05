@@ -398,14 +398,14 @@ const Index = () => {
               <ul className="space-y-2 mb-4 flex-1">
                 {[
                   "Instalação automática em 1 clique",
-                  "Jogo já configurado para rodar",
-                  "Sem erros ou arquivos faltando",
-                  "Pack com outros jogos clássicos",
-                  "Atualizações futuras",
+                  "Jogo pronto para jogar",
+                  "Sem erros ou configurações difíceis",
+                  "Biblioteca com <strong>+100 jogos</strong> clássicos",
+                  "Novos jogos adicionados nas atualizações",
                 ].map((t) => (
                   <li key={t} className="flex items-start gap-2 text-xs text-foreground">
                     <Check className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
-                    {t}
+                    <span dangerouslySetInnerHTML={{ __html: t }} />
                   </li>
                 ))}
               </ul>
@@ -582,14 +582,14 @@ const Index = () => {
             <ul className="text-left space-y-2.5 mb-6">
               {[
                 "Instalação automática em 1 clique",
-                "Jogo já configurado para rodar",
-                "Sem erros ou arquivos faltando",
-                "Pack com outros jogos clássicos",
-                "Atualizações futuras",
+                "Jogo pronto para jogar",
+                "Sem erros ou configurações difíceis",
+                "Biblioteca com <strong>+100 jogos</strong> clássicos",
+                "Novos jogos adicionados nas atualizações",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-2.5 text-sm text-foreground/90">
                   <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  {t}
+                  <span dangerouslySetInnerHTML={{ __html: t }} />
                 </li>
               ))}
             </ul>
