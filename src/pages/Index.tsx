@@ -357,7 +357,7 @@ const Index = () => {
                 {[
                   "Instalação passo a passo",
                   "Requer configuração manual",
-                  "Apenas este jogo",
+                  "Apenas o jogo Need for Speed Underground 2",
                 ].map((t) => (
                   <li key={t} className="flex items-start gap-2 text-xs text-muted-foreground">
                     <span className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 rounded-full border border-border flex items-center justify-center">
