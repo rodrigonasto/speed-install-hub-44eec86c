@@ -1,6 +1,7 @@
+import { useState, useMemo } from "react";
 import nfsCover from "@/assets/nfs-cover.png";
 import packImage from "@/assets/pack-image.png";
-import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star } from "lucide-react";
+import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star, Search } from "lucide-react";
 
 const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
