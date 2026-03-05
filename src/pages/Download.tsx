@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Download, ShieldCheck, ExternalLink, Star } from "lucide-react";
+import { Download, ShieldCheck, ExternalLink, Star, Zap, CheckCircle } from "lucide-react";
 
 const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
