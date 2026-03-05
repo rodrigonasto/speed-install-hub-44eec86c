@@ -182,7 +182,7 @@ const Index = () => {
 
           {/* Title */}
           <h1 className="text-2xl sm:text-3xl font-extrabold text-foreground leading-tight mb-2">
-            Need for Speed Underground
+             Como jogar Need for Speed Underground no celular
           </h1>
           <p className="text-muted-foreground text-sm sm:text-base mb-6">
             Baixe grátis e jogue no celular agora.
