@@ -153,6 +153,7 @@ const SocialProofBadge = () => {
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [downloadModalOpen, setDownloadModalOpen] = useState(false);
 
   const filteredCategories = useMemo(() => {
     const query = searchQuery.toLowerCase().trim();
