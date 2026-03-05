@@ -362,9 +362,27 @@ const Index = () => {
             {/* Top bar */}
             <div className="absolute top-0 inset-x-0 h-0.5 bg-primary rounded-t-2xl" />
 
-            <span className="inline-block bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-5">
-              🔥 Mais vendido
-            </span>
+            {/* Ribbon */}
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+              <div className="relative bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-background font-extrabold text-[11px] uppercase tracking-widest px-6 py-1.5 rounded-full shadow-[0_4px_20px_rgba(245,158,11,0.4)] flex items-center gap-1.5">
+                <span className="animate-pulse">🏆</span>
+                Escolha #1 dos Gamers
+                <span className="animate-pulse">🔥</span>
+              </div>
+            </div>
+
+            <div className="mt-3 mb-5 flex items-center justify-center gap-2">
+              <div className="flex -space-x-1.5">
+                {[...Array(4)].map((_, i) => (
+                  <div key={i} className="w-6 h-6 rounded-full bg-primary/20 border-2 border-card flex items-center justify-center text-[8px]">
+                    {['😎', '🎮', '🤩', '💯'][i]}
+                  </div>
+                ))}
+              </div>
+              <p className="text-[10px] text-muted-foreground">
+                <span className="text-foreground font-bold">+2.800</span> já compraram
+              </p>
+            </div>
 
             <h2 className="text-xl font-bold text-foreground mb-3">
               MEGA PACK COMPLETO
