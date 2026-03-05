@@ -117,30 +117,20 @@ const categories = [
 ];
 
 const SocialProofBadge = () => {
-  const [count, setCount] = useState(Math.floor(Math.random() * 15) + 18);
-
-  useEffect(() => {
-    const tick = () => {
-      const delay = Math.random() * 8000 + 5000;
-      setTimeout(() => {
-        setCount(prev => {
-          const bump = Math.random() > 0.15 ? 1 : 0;
-          return Math.min(52, prev + bump);
-        });
-        tick();
-      }, delay);
-    };
-    tick();
-  }, []);
-
   return (
-    <span className="inline-flex items-center gap-2 bg-primary/90 text-primary-foreground text-xs font-bold px-5 py-2 rounded-full mb-5 shadow-lg shadow-primary/25">
-      <span className="relative flex h-2 w-2">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-        <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-      </span>
-      <span className="tabular-nums">{count}</span> pessoas compraram na última hora
-    </span>
+    <div className="flex flex-col items-center gap-2 mb-5">
+      <div className="flex items-center gap-1">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+        ))}
+        <span className="text-sm font-bold text-foreground ml-1.5">4.9</span>
+        <span className="text-xs text-muted-foreground">(2.847 avaliações)</span>
+      </div>
+      <div className="flex items-center gap-1.5 text-xs text-primary font-medium">
+        <ShieldCheck className="w-3.5 h-3.5" />
+        Garantia de 7 dias ou seu dinheiro de volta
+      </div>
+    </div>
   );
 };
 
