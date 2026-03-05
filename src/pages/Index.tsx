@@ -475,8 +475,8 @@ const Index = () => {
                 <span className="text-sm font-bold text-primary">Grátis</span>
               </div>
               <div className="bg-primary/5 p-3 text-center">
-                <span className="text-[10px] text-muted-foreground line-through block">R$47</span>
-                <span className="text-sm font-bold text-primary">R$27</span>
+                <span className="text-[10px] text-muted-foreground line-through block">R$97</span>
+                <span className="text-sm font-bold text-primary">R$47</span>
               </div>
             </div>
           </div>
