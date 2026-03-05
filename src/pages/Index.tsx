@@ -118,7 +118,18 @@ const categories = [
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [liveCount, setLiveCount] = useState(23);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLiveCount(prev => {
+        const change = Math.random() > 0.4 ? Math.ceil(Math.random() * 3) : -1;
+        const next = prev + change;
+        return Math.max(18, Math.min(47, next));
+      });
+    }, 3000 + Math.random() * 4000);
+    return () => clearInterval(interval);
+  }, []);
   const filteredCategories = useMemo(() => {
     const query = searchQuery.toLowerCase().trim();
     if (!query) return categories;
