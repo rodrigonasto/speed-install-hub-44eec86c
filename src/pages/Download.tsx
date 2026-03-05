@@ -169,7 +169,7 @@ const DownloadPage = () => {
             href="https://wa.me/SEUNUMERO?text=Quero%20entrar%20no%20grupo%20VIP%20de%20jogos"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full inline-flex items-center justify-center gap-2 bg-[hsl(142,72%,50%)] text-primary-foreground font-bold text-base py-4 rounded-xl hover:brightness-110 transition-all"
+            className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-base py-4 rounded-xl hover:brightness-110 transition-all"
           >
             <ExternalLink className="w-5 h-5" />
             Solicitar acesso ao Grupo VIP
