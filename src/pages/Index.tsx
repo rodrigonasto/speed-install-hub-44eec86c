@@ -230,19 +230,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ─── VIDEO ─── */}
-      <section id="tutorial" className="px-5 pb-10">
-        <div className="container max-w-lg mx-auto">
-          <h2 className="text-lg font-bold text-foreground text-center mb-4">
-            Como instalar
-          </h2>
-          <div className="aspect-video rounded-2xl overflow-hidden bg-card border border-border">
-            <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
-              Insira o vídeo do YouTube aqui
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ─── TUTORIAL ─── */}
+      <TutorialSection />
 
       {/* ─── DOWNLOAD ─── */}
       <section id="download" className="px-5 py-10 bg-card">
