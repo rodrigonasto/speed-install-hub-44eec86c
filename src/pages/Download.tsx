@@ -121,7 +121,6 @@ const DownloadPage = () => {
           {platform === "ios" && (
             <div className="space-y-3">
               {[
-                { name: "Tutorial", link: "#" },
                 { name: "iRAR", link: "#" },
                 { name: "PPSSPP", link: "#" },
                 { name: "Need for Speed Underground 2", link: "#" },
