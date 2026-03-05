@@ -139,7 +139,7 @@ const Index = () => {
         <div className="container max-w-lg mx-auto">
           <div className="flex items-center justify-center gap-1 mb-1">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+              <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
             ))}
           </div>
           <p className="text-center text-muted-foreground text-xs">
@@ -213,7 +213,7 @@ const Index = () => {
             ].map(([manual, auto], i) => (
               <div key={i} className="grid grid-cols-2">
                 <div className="bg-card/50 border-b border-r border-border p-3 flex items-center gap-2">
-                  <X className="w-3.5 h-3.5 text-red-400 flex-shrink-0" />
+                  <X className="w-3.5 h-3.5 text-destructive flex-shrink-0" />
                   <span className="text-muted-foreground text-xs">{manual}</span>
                 </div>
                 <div className="bg-primary/5 border-b border-border p-3 flex items-center gap-2">
