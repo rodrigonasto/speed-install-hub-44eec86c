@@ -635,7 +635,7 @@ const Index = () => {
       {/* ─── FOOTER ─── */}
       <footer className="px-5 py-6 border-t border-border">
         <p className="text-center text-muted-foreground text-[10px]">
-          Página criada para facilitar o acesso ao jogo e ajudar jogadores a instalarem sem dificuldades.
+          Conteúdo criado para ajudar jogadores a baixar e instalar Need for Speed Underground no celular sem complicação.
         </p>
       </footer>
     </div>
