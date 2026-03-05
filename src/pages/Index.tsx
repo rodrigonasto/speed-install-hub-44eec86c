@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import nfsCover from "@/assets/nfs-cover.png";
 import packImage from "@/assets/pack-image.png";
 import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star, Search } from "lucide-react";
@@ -115,6 +115,27 @@ const categories = [
     ],
   },
 ];
+
+const SocialProofBadge = () => {
+  const [count, setCount] = useState(Math.floor(Math.random() * 15) + 18);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCount(prev => {
+        const change = Math.random() > 0.4 ? 1 : -1;
+        const next = prev + change;
+        return Math.max(14, Math.min(47, next));
+      });
+    }, Math.random() * 3000 + 2500);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <span className="inline-flex items-center gap-1.5 bg-red-500/15 text-red-400 text-[11px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full mb-5 animate-pulse">
+      🔥 <span className="tabular-nums">{count}</span> pessoas compraram na última hora
+    </span>
+  );
+};
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -362,9 +383,7 @@ const Index = () => {
             {/* Top bar */}
             <div className="absolute top-0 inset-x-0 h-0.5 bg-primary rounded-t-2xl" />
 
-            <span className="inline-block bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-5">
-              🔥 Mais vendido
-            </span>
+            <SocialProofBadge />
 
             <h2 className="text-xl font-bold text-foreground mb-3">
               MEGA PACK COMPLETO
