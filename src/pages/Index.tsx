@@ -132,8 +132,8 @@ const Index = () => {
             <img src={screenshot1} alt="Gameplay NFS Underground" className="rounded-xl neon-border box-glow w-full" />
             <img src={screenshot2} alt="Customização NFS Underground" className="rounded-xl neon-border box-glow w-full" />
           </div>
-          <p className="text-center text-muted-foreground text-sm mt-4">
-            Reviva o clássico das corridas de rua direto no seu PC
+          <p className="text-center text-foreground/60 text-sm mt-4">
+            Reviva o clássico das corridas de rua no seu celular
           </p>
         </div>
       </section>
