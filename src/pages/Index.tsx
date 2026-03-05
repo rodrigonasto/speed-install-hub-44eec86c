@@ -312,7 +312,7 @@ const Index = () => {
               <p className="text-muted-foreground text-[10px] mb-3">Tudo pronto, sem dor de cabeça</p>
 
               {/* Pack image */}
-              <div className="rounded-lg overflow-hidden mb-3">
+              <div className="rounded-lg overflow-hidden mb-3 w-3/4 mx-auto">
                 <img src={packImage} alt="Pack com todos os jogos" className="w-full" />
               </div>
 
