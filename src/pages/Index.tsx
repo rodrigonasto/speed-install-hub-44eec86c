@@ -262,11 +262,11 @@ const Index = () => {
           </div>
 
           {/* Cover */}
-          <div className="w-40 sm:w-48 mx-auto mb-6">
+          <div className="w-full max-w-md mx-auto mb-6">
             <img
               src={nfsCover}
-              alt="Need for Speed Underground"
-              className="w-full rounded-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)]"
+              alt="Need for Speed Underground 2"
+              className="w-full rounded-2xl shadow-[0_20px_80px_-10px_rgba(34,197,94,0.25),0_10px_40px_-10px_rgba(0,0,0,0.7)] border border-primary/20"
             />
           </div>
 
