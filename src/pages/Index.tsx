@@ -92,20 +92,20 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       {/* HERO */}
-      <section className="relative min-h-[90vh] flex items-end justify-center overflow-hidden">
+      <section className="relative min-h-[60vh] sm:min-h-[75vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroImage} alt="Need for Speed Underground" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/40" />
         </div>
-        <div className="relative z-10 container text-center px-5 pb-12 sm:pb-16 pt-24 sm:pt-32">
+        <div className="relative z-10 container text-center px-5 py-16 sm:py-20">
           <span className="inline-block text-neon-green font-bold text-xs uppercase tracking-[0.2em] mb-4">
             🎮 Download gratuito
           </span>
-          <h1 className="font-display text-3xl sm:text-4xl md:text-6xl font-black leading-none text-glow mb-4 text-foreground">
+          <h1 className="font-display text-2xl sm:text-4xl md:text-6xl font-black leading-none text-glow mb-3 text-foreground">
             Need for Speed<br />
             <span className="text-primary">Underground</span>
           </h1>
-          <p className="text-foreground/80 text-base sm:text-lg mb-8 max-w-md mx-auto">
+          <p className="text-foreground/80 text-sm sm:text-lg mb-6 max-w-md mx-auto">
             Jogue no seu celular agora mesmo. Grátis.
           </p>
           <button
