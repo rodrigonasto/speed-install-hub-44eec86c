@@ -311,12 +311,25 @@ const Index = () => {
             <br />
             <span className="text-primary">Jogue Para Sempre!</span>
           </h2>
-          <p className="text-muted-foreground text-xs sm:text-sm text-center mb-6">
-            Pagamento <span className="text-foreground font-semibold">único</span> • Sem mensalidades • Download <span className="text-foreground font-semibold">imediato</span>
-          </p>
+          <div className="flex items-center justify-center gap-3 sm:gap-5 mb-8">
+            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <span className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary text-[10px]">💰</span>
+              <span>Pagamento <span className="text-foreground font-semibold">único</span></span>
+            </div>
+            <div className="w-px h-4 bg-border" />
+            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <span className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary text-[10px]">♾️</span>
+              <span>Sem mensalidades</span>
+            </div>
+            <div className="w-px h-4 bg-border" />
+            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <span className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary text-[10px]">⚡</span>
+              <span>Download <span className="text-foreground font-semibold">imediato</span></span>
+            </div>
+          </div>
 
           {/* Search bar */}
-          <div className="relative mb-5">
+          <div className="relative mb-8">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <input
               type="text"
@@ -327,25 +340,8 @@ const Index = () => {
             />
           </div>
 
-          {/* Category tabs */}
-          <div className="flex gap-2 overflow-x-auto pb-4 mb-6 scrollbar-hide">
-            {categoryLabels.map((label) => (
-              <button
-                key={label}
-                onClick={() => setActiveCategory(label)}
-                className={`flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all ${
-                  activeCategory === label
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-background border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
-                }`}
-              >
-                {label === "Todos" ? "🎮 Todos" : label}
-              </button>
-            ))}
-          </div>
-
           {/* Games grid */}
-          {filteredCategories.map((cat) => (
+          {filteredCategories.length > 0 ? filteredCategories.map((cat) => (
             <div key={cat.label} className="mb-8 last:mb-0">
               <h3 className="text-sm font-bold text-foreground mb-3">{cat.label}</h3>
               <div className="grid grid-cols-4 sm:grid-cols-6 gap-1.5 sm:gap-2">
@@ -359,9 +355,7 @@ const Index = () => {
                 ))}
               </div>
             </div>
-          ))}
-
-          {filteredCategories.length === 0 && (
+          )) : (
             <p className="text-muted-foreground text-sm text-center py-8">
               Nenhum jogo encontrado para "{searchQuery}"
             </p>
@@ -385,7 +379,7 @@ const Index = () => {
             </span>
 
             <h2 className="text-xl font-bold text-foreground mb-3">
-              Versão Automática + Pack
+              MEGA PACK COMPLETO
             </h2>
 
             {/* Pack image */}
