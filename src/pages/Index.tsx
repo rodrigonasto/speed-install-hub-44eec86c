@@ -1,6 +1,7 @@
+import { useState, useMemo } from "react";
 import nfsCover from "@/assets/nfs-cover.png";
 import packImage from "@/assets/pack-image.png";
-import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star } from "lucide-react";
+import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star, Search } from "lucide-react";
 
 const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
@@ -116,6 +117,31 @@ const categories = [
 ];
 
 const Index = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState("Todos");
+
+  const categoryLabels = ["Todos", ...categories.map(c => c.label)];
+
+  const filteredCategories = useMemo(() => {
+    const query = searchQuery.toLowerCase().trim();
+    let filtered = categories;
+
+    if (activeCategory !== "Todos") {
+      filtered = filtered.filter(c => c.label === activeCategory);
+    }
+
+    if (query) {
+      filtered = filtered
+        .map(cat => ({
+          ...cat,
+          games: cat.games.filter(g => g.name.toLowerCase().includes(query)),
+        }))
+        .filter(cat => cat.games.length > 0);
+    }
+
+    return filtered;
+  }, [searchQuery, activeCategory]);
+
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
 
@@ -277,16 +303,49 @@ const Index = () => {
       </section>
 
       {/* ─── JOGOS DO PACK ─── */}
-      <section className="px-5 py-10 bg-card">
+      <section id="jogos" className="px-5 py-10 bg-card">
         <div className="container max-w-2xl mx-auto">
-          <h2 className="text-lg font-bold text-foreground text-center mb-1">
-            +80 jogos inclusos no pack
+          {/* Header like reference */}
+          <h2 className="text-xl sm:text-2xl font-extrabold text-foreground text-center mb-2">
+            Escolha Seu Jogo Favorito e
+            <br />
+            <span className="text-primary">Jogue Para Sempre!</span>
           </h2>
-          <p className="text-muted-foreground text-xs text-center mb-8">
-            Todos prontos para jogar no celular
+          <p className="text-muted-foreground text-xs sm:text-sm text-center mb-6">
+            Pagamento <span className="text-foreground font-semibold">único</span> • Sem mensalidades • Download <span className="text-foreground font-semibold">imediato</span>
           </p>
 
-          {categories.map((cat) => (
+          {/* Search bar */}
+          <div className="relative mb-5">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <input
+              type="text"
+              placeholder="Buscar jogos..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-background border border-border rounded-xl pl-10 pr-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+            />
+          </div>
+
+          {/* Category tabs */}
+          <div className="flex gap-2 overflow-x-auto pb-4 mb-6 scrollbar-hide">
+            {categoryLabels.map((label) => (
+              <button
+                key={label}
+                onClick={() => setActiveCategory(label)}
+                className={`flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all ${
+                  activeCategory === label
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-background border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
+                }`}
+              >
+                {label === "Todos" ? "🎮 Todos" : label}
+              </button>
+            ))}
+          </div>
+
+          {/* Games grid */}
+          {filteredCategories.map((cat) => (
             <div key={cat.label} className="mb-8 last:mb-0">
               <h3 className="text-sm font-bold text-foreground mb-3">{cat.label}</h3>
               <div className="grid grid-cols-4 sm:grid-cols-6 gap-1.5 sm:gap-2">
@@ -301,6 +360,12 @@ const Index = () => {
               </div>
             </div>
           ))}
+
+          {filteredCategories.length === 0 && (
+            <p className="text-muted-foreground text-sm text-center py-8">
+              Nenhum jogo encontrado para "{searchQuery}"
+            </p>
+          )}
 
           <p className="text-muted-foreground text-[10px] text-center mt-4">
             E mais jogos adicionados toda semana!
