@@ -92,54 +92,40 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* HERO */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-end justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImage} alt="Need for Speed Underground" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background" />
+          <img src={heroImage} alt="Need for Speed Underground" className="w-full h-full object-cover object-center" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
         </div>
-        <div className="relative z-10 container text-center px-4 py-16">
-          <div className="inline-block bg-neon-green/10 border border-neon-green/30 px-4 py-1.5 rounded-full mb-6">
-            <span className="text-neon-green font-semibold text-sm">🎮 100% Gratuito</span>
-          </div>
-          <h1 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black leading-tight text-glow mb-5 text-primary">
-            Need for Speed Underground
-            <span className="block text-foreground text-lg sm:text-xl md:text-2xl mt-3 font-body font-normal">
-              Baixe agora e jogue no seu celular em minutos
-            </span>
+        <div className="relative z-10 container text-center px-4 pb-16 pt-32">
+          <span className="inline-block text-neon-green font-bold text-xs uppercase tracking-[0.2em] mb-4">
+            🎮 Download gratuito
+          </span>
+          <h1 className="font-display text-3xl sm:text-4xl md:text-6xl font-black leading-none text-glow mb-4 text-foreground">
+            Need for Speed<br />
+            <span className="text-primary">Underground</span>
           </h1>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto mb-8">
-            Download gratuito + tutorial de instalação passo a passo. Sem cadastro, sem complicação.
+          <p className="text-foreground/80 text-base sm:text-lg mb-8 max-w-md mx-auto">
+            Jogue no seu celular agora mesmo. Grátis.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button
-              onClick={() => scrollToSection("download")}
-              className="inline-flex items-center gap-3 bg-neon-gradient px-8 py-4 rounded-xl font-display font-bold text-primary-foreground text-base sm:text-lg box-glow-strong hover:scale-105 transition-transform duration-200 w-full sm:w-auto justify-center"
-            >
-              <Download className="w-5 h-5" />
-              Baixar jogo grátis
-            </button>
-            <button
-              onClick={() => scrollToSection("tutorial")}
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
-            >
-              <Play className="w-4 h-4" />
-              Ver tutorial de instalação
-            </button>
+          <button
+            onClick={() => scrollToSection("download")}
+            className="inline-flex items-center gap-3 bg-neon-gradient px-10 py-4 rounded-xl font-display font-bold text-primary-foreground text-base sm:text-lg box-glow-strong hover:scale-105 transition-transform duration-200"
+          >
+            <Download className="w-5 h-5" />
+            Baixar grátis
+          </button>
+          <div className="mt-6 flex items-center justify-center gap-4 text-foreground/50 text-xs">
+            <span className="flex items-center gap-1"><Shield className="w-3 h-3" /> Seguro</span>
+            <span>•</span>
+            <span>Android & iPhone</span>
+            <span>•</span>
+            <span>Sem cadastro</span>
           </div>
-          <p className="mt-6 text-muted-foreground text-xs flex items-center justify-center gap-1.5">
-            <Shield className="w-3.5 h-3.5" /> Download seguro • Sem vírus • Android & iPhone
-          </p>
         </div>
-        <button
-          onClick={() => scrollToSection("tutorial")}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 text-primary animate-bounce"
-          aria-label="Rolar"
-        >
-          <ArrowDown className="w-6 h-6" />
-        </button>
       </section>
 
-      {/* PROVA VISUAL */}
+      {/* SCREENSHOTS */}
       <section className="py-14 px-4">
         <div className="container max-w-4xl mx-auto">
           <div className="grid grid-cols-2 gap-3 sm:gap-6">
