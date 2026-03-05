@@ -270,7 +270,7 @@ const TutorialSection = () => {
   );
 };
 
-
+const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
 
