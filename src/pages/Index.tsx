@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import nfsCover from "@/assets/nfs-cover.png";
 import packImage from "@/assets/pack-image.png";
-import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star, Search, ChevronDown } from "lucide-react";
+import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star, Search, ArrowDown } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -341,7 +341,7 @@ const Index = () => {
             className="mt-6 mx-auto flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors animate-bounce"
             aria-label="Ver mais"
           >
-            <ChevronDown className="w-10 h-10" />
+            <ArrowDown className="w-10 h-10" />
           </button>
         </div>
       </section>
