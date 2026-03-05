@@ -334,15 +334,6 @@ const Index = () => {
           <p className="text-muted-foreground text-[11px] mt-3 flex items-center justify-center gap-1">
             <ShieldCheck className="w-3 h-3" /> Download seguro e gratuito
           </p>
-
-          {/* Seta para próxima seção */}
-          <button
-            onClick={() => scrollTo("comparativo")}
-            className="mt-6 mx-auto flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors animate-bounce"
-            aria-label="Ver mais"
-          >
-            <ArrowDown className="w-10 h-10" />
-          </button>
         </div>
       </section>
 
