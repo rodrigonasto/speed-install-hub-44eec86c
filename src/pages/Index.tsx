@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import nfsCover from "@/assets/nfs-cover.png";
 import packImage from "@/assets/pack-image.png";
 import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star, Search } from "lucide-react";
@@ -362,9 +362,7 @@ const Index = () => {
             {/* Top bar */}
             <div className="absolute top-0 inset-x-0 h-0.5 bg-primary rounded-t-2xl" />
 
-            <span className="inline-block bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-5">
-              🔥 Mais vendido
-            </span>
+            <SocialProofBadge />
 
             <h2 className="text-xl font-bold text-foreground mb-3">
               MEGA PACK COMPLETO
