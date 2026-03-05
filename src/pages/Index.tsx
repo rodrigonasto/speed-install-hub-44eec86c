@@ -439,7 +439,7 @@ const Index = () => {
       </Dialog>
 
       {/* ─── COMPARAÇÃO ─── */}
-      <section className="px-5 py-10">
+      <section id="comparativo" className="px-5 py-10">
         <div className="container max-w-lg mx-auto">
           <h2 className="text-lg font-bold text-foreground text-center mb-2">
             Manual vs Automático
