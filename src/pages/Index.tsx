@@ -388,7 +388,7 @@ const Index = () => {
                 🔥 Mais escolhido pelos jogadores
               </span>
 
-              <h3 className="text-sm font-bold text-foreground mb-3 text-center">👉 Instalação automática + Biblioteca gamer (+100 jogos)</h3>
+              <h3 className="text-sm font-bold text-foreground mb-3 text-center">Instalação automática + Biblioteca gamer (+100 jogos)</h3>
 
               {/* Pack image */}
               <div className="rounded-lg overflow-hidden mb-3 w-3/4 mx-auto">
@@ -421,7 +421,7 @@ const Index = () => {
                 href="#"
                 className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-sm py-3 rounded-lg hover:brightness-110 transition-all"
               >
-                🚀 Instalar e jogar agora
+                Instalar e jogar agora
               </a>
               <p className="text-muted-foreground text-[9px] mt-2 flex items-center justify-center gap-1">
                 <ShieldCheck className="w-3 h-3" /> Compra segura • Entrega imediata
@@ -567,7 +567,7 @@ const Index = () => {
             <SocialProofBadge />
 
             <h2 className="text-xl font-bold text-foreground mb-3">
-              👉 Instalação automática + Biblioteca gamer (+100 jogos)
+              Instalação automática + Biblioteca gamer (+100 jogos)
             </h2>
 
             {/* Pack image */}
@@ -605,7 +605,7 @@ const Index = () => {
               href="#"
               className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-sm py-3.5 rounded-xl hover:brightness-110 transition-all"
             >
-              🚀 Instalar e jogar agora
+              Instalar e jogar agora
             </a>
             <p className="text-muted-foreground text-[10px] mt-2 flex items-center justify-center gap-1">
               <ShieldCheck className="w-3 h-3" /> Compra segura • Entrega imediata
