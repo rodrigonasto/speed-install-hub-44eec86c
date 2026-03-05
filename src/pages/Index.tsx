@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import nfsCover from "@/assets/nfs-cover.png";
 import packImage from "@/assets/pack-image.png";
 import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star, Search } from "lucide-react";
@@ -118,7 +118,18 @@ const categories = [
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [liveCount, setLiveCount] = useState(23);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLiveCount(prev => {
+        const change = Math.random() > 0.4 ? Math.ceil(Math.random() * 3) : -1;
+        const next = prev + change;
+        return Math.max(18, Math.min(47, next));
+      });
+    }, 3000 + Math.random() * 4000);
+    return () => clearInterval(interval);
+  }, []);
   const filteredCategories = useMemo(() => {
     const query = searchQuery.toLowerCase().trim();
     if (!query) return categories;
@@ -362,16 +373,18 @@ const Index = () => {
             {/* Top bar */}
             <div className="absolute top-0 inset-x-0 h-0.5 bg-primary rounded-t-2xl" />
 
-            {/* Ribbon */}
+            {/* Live counter */}
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-              <div className="relative bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-background font-extrabold text-[11px] uppercase tracking-widest px-6 py-1.5 rounded-full shadow-[0_4px_20px_rgba(245,158,11,0.4)] flex items-center gap-1.5">
-                <span className="animate-pulse">🏆</span>
-                Escolha #1 dos Gamers
-                <span className="animate-pulse">🔥</span>
+              <div className="relative bg-destructive text-destructive-foreground font-bold text-[11px] px-5 py-1.5 rounded-full shadow-[0_4px_20px_rgba(239,68,68,0.4)] flex items-center gap-2 whitespace-nowrap">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive-foreground opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-destructive-foreground"></span>
+                </span>
+                🔥 {liveCount} pessoas compraram na última hora
               </div>
             </div>
 
-            <div className="mt-3 mb-5 flex items-center justify-center gap-2">
+            <div className="mt-5 mb-5 flex items-center justify-center gap-2">
               <div className="flex -space-x-1.5">
                 {[...Array(4)].map((_, i) => (
                   <div key={i} className="w-6 h-6 rounded-full bg-primary/20 border-2 border-card flex items-center justify-center text-[8px]">
