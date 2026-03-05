@@ -148,20 +148,6 @@ const DownloadPage = () => {
           <h1 className="text-2xl sm:text-3xl font-extrabold text-foreground leading-tight mb-3">
             Seu download está pronto 🎮
           </h1>
-          <p className="text-muted-foreground text-sm sm:text-base mb-6">
-            Clique abaixo para baixar <span className="text-primary font-semibold">Need for Speed Underground 2</span> e começar a jogar no celular.
-          </p>
-
-          <button
-            onClick={() => scrollTo("tutorial")}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-base px-10 py-4 rounded-xl hover:brightness-110 transition-all"
-          >
-            <Download className="w-5 h-5" />
-            Baixar Need for Speed Underground 2
-          </button>
-          <p className="text-muted-foreground text-[11px] mt-3 flex items-center justify-center gap-1">
-            <ShieldCheck className="w-3 h-3" /> Download seguro e gratuito.
-          </p>
         </div>
       </section>
 
