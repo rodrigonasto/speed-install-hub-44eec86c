@@ -278,18 +278,11 @@ const Index = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 px-5 pb-5">
             {/* Card 1 — Manual */}
-            <div className="rounded-xl border border-border bg-background p-4 flex flex-col">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-7 h-7 rounded-lg bg-muted flex items-center justify-center">
-                  <Download className="w-3.5 h-3.5 text-muted-foreground" />
-                </div>
-                <div>
-                  <h3 className="text-sm font-bold text-foreground leading-tight">Instalação manual</h3>
-                  <span className="text-[10px] text-muted-foreground">Gratuita</span>
-                </div>
-              </div>
+            <div className="rounded-xl border border-border bg-background p-4 flex flex-col text-center">
+              <h3 className="text-sm font-bold text-foreground mb-1">Instalação manual</h3>
+              <span className="text-[10px] text-muted-foreground mb-3">Gratuita</span>
 
-              <ul className="space-y-2 mb-4 flex-1">
+              <ul className="space-y-2 mb-4 flex-1 text-left">
                 {[
                   "Instalação passo a passo",
                   "Requer configuração manual",
@@ -304,7 +297,7 @@ const Index = () => {
                 ))}
               </ul>
 
-              <div className="text-center mb-3">
+              <div className="mb-3">
                 <span className="text-sm font-bold text-foreground">Grátis</span>
               </div>
 
@@ -312,7 +305,6 @@ const Index = () => {
                 href="#"
                 className="w-full inline-flex items-center justify-center gap-2 border border-border text-foreground font-semibold text-xs py-2.5 rounded-lg hover:bg-muted transition-colors"
               >
-                <Download className="w-3.5 h-3.5" />
                 Baixar manualmente
               </a>
             </div>
