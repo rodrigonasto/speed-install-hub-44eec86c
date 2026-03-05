@@ -356,102 +356,59 @@ const Index = () => {
       </section>
 
       {/* ─── PREMIUM ─── */}
-      <section id="premium" className="px-5 py-12">
+      <section id="premium" className="px-5 py-10">
         <div className="container max-w-md mx-auto">
-          {/* Urgency banner */}
-          <div className="bg-destructive/10 border border-destructive/30 rounded-xl px-4 py-2.5 mb-4 text-center">
-            <p className="text-xs font-bold text-destructive">
-              🔥 OFERTA RELÂMPAGO — Preço sobe em breve!
+          <div className="rounded-2xl border border-primary/30 bg-card p-6 sm:p-8 text-center relative">
+            {/* Top bar */}
+            <div className="absolute top-0 inset-x-0 h-0.5 bg-primary rounded-t-2xl" />
+
+            <span className="inline-block bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-5">
+              🔥 Mais vendido
+            </span>
+
+            <h2 className="text-xl font-bold text-foreground mb-3">
+              MEGA PACK COMPLETO
+            </h2>
+
+            {/* Pack image */}
+            <div className="rounded-xl overflow-hidden mb-5">
+              <img src={packImage} alt="Pack com todos os jogos" className="w-full" />
+            </div>
+
+            <p className="text-muted-foreground text-xs mb-6">
+              Tudo pronto, sem dor de cabeça
             </p>
-          </div>
 
-          <div className="rounded-2xl border-2 border-primary/40 bg-card relative overflow-hidden">
-            {/* Glow top bar */}
-            <div className="h-1 bg-gradient-to-r from-primary/60 via-primary to-primary/60" />
+            <ul className="text-left space-y-2.5 mb-6">
+              {[
+                "Instalação automática em 1 clique",
+                "Jogo configurado e pronto",
+                "Sem erros ou arquivos faltando",
+                "+80 jogos clássicos inclusos",
+                "Atualizações e novos jogos grátis",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-2.5 text-sm text-foreground/90">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  {t}
+                </li>
+              ))}
+            </ul>
 
-            {/* Badge ribbon */}
-            <div className="absolute -right-8 top-5 rotate-45 bg-primary text-primary-foreground text-[9px] font-bold uppercase tracking-wider px-10 py-1 shadow-lg">
-              Mais vendido
+            <div className="mb-1">
+              <span className="text-muted-foreground text-xs line-through mr-1.5">R$47</span>
+              <span className="text-3xl font-extrabold text-foreground">R$27</span>
             </div>
+            <p className="text-muted-foreground text-[10px] mb-5">Pagamento único • Acesso imediato</p>
 
-            <div className="p-6 sm:p-8 text-center">
-              {/* Social proof */}
-              <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/20 rounded-full px-4 py-1.5 mb-5">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                </span>
-                <span className="text-[11px] text-muted-foreground">
-                  <span className="text-foreground font-bold">23 pessoas</span> compraram na última hora
-                </span>
-              </div>
-
-              <h2 className="text-2xl font-extrabold text-foreground mb-1">
-                MEGA PACK COMPLETO
-              </h2>
-              <p className="text-muted-foreground text-xs mb-5">
-                Tudo pronto, sem dor de cabeça
-              </p>
-
-              {/* Pack image */}
-              <div className="rounded-xl overflow-hidden mb-6 border border-border/50">
-                <img src={packImage} alt="Pack com todos os jogos" className="w-full" />
-              </div>
-
-              {/* Benefits with icons */}
-              <ul className="text-left space-y-3 mb-6">
-                {[
-                  { icon: "⚡", text: "Instalação automática em 1 clique" },
-                  { icon: "🎮", text: "Jogo configurado e pronto para jogar" },
-                  { icon: "✅", text: "Sem erros ou arquivos faltando" },
-                  { icon: "📦", text: "+80 jogos clássicos inclusos" },
-                  { icon: "🔄", text: "Atualizações e novos jogos grátis" },
-                ].map((item) => (
-                  <li key={item.text} className="flex items-center gap-3 text-sm text-foreground/90">
-                    <span className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center text-sm flex-shrink-0">{item.icon}</span>
-                    {item.text}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Price block */}
-              <div className="bg-background rounded-xl border border-border p-4 mb-5">
-                <p className="text-muted-foreground text-[10px] uppercase tracking-wider mb-1">Investimento único</p>
-                <div className="flex items-center justify-center gap-3">
-                  <span className="text-muted-foreground text-lg line-through">R$97</span>
-                  <span className="text-4xl font-black text-foreground">R$27</span>
-                </div>
-                <div className="inline-block bg-primary/10 text-primary text-[10px] font-bold px-3 py-0.5 rounded-full mt-2">
-                  72% OFF — Economia de R$70
-                </div>
-              </div>
-
-              {/* CTA */}
-              <a
-                href="#"
-                className="group w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-base py-4 rounded-xl hover:brightness-110 transition-all shadow-[0_4px_20px_-4px_hsl(var(--primary)/0.5)]"
-              >
-                <Zap className="w-5 h-5" />
-                QUERO O MEGA PACK POR R$27
-              </a>
-
-              {/* Guarantees */}
-              <div className="flex items-center justify-center gap-4 mt-4 text-[10px] text-muted-foreground">
-                <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3" /> Compra segura</span>
-                <span className="flex items-center gap-1"><Zap className="w-3 h-3" /> Entrega imediata</span>
-              </div>
-
-              {/* Guarantee badge */}
-              <div className="mt-5 pt-5 border-t border-border">
-                <div className="flex items-center justify-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-primary" />
-                  <div className="text-left">
-                    <p className="text-xs font-bold text-foreground">Garantia de 7 dias</p>
-                    <p className="text-[10px] text-muted-foreground">Não gostou? Devolvemos 100% do seu dinheiro.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <a
+              href="#"
+              className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-sm py-3.5 rounded-xl hover:brightness-110 transition-all"
+            >
+              Desbloquear por R$27
+            </a>
+            <p className="text-muted-foreground text-[10px] mt-2 flex items-center justify-center gap-1">
+              <ShieldCheck className="w-3 h-3" /> Compra segura • Entrega imediata
+            </p>
           </div>
         </div>
       </section>
