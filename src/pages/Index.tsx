@@ -272,10 +272,8 @@ const Index = () => {
 
           {/* Title */}
           <h1 className="text-2xl sm:text-3xl font-extrabold text-foreground leading-tight mb-2">
-             Aprenda como jogar
-             <br />
-             <span className="text-amber-400">Need for Speed Underground 2</span>
-             <br />
+             Aprenda como jogar{" "}
+             <span className="text-amber-400">Need for Speed Underground 2</span>{" "}
              no celular
           </h1>
           <p className="text-muted-foreground text-sm sm:text-base mb-6">
