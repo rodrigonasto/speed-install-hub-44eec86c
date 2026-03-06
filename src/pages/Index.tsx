@@ -284,7 +284,9 @@ const Index = () => {
                 src={nfsCover}
                 alt="Need for Speed Underground 2"
                 className="w-full rounded-2xl shadow-[0_20px_80px_-10px_rgba(34,197,94,0.25),0_10px_40px_-10px_rgba(0,0,0,0.7)] border border-primary/20"
-                decoding="async"
+                width={448}
+                height={252}
+                fetchPriority="high"
               />
             </picture>
           </div>
@@ -563,8 +565,8 @@ const Index = () => {
               <div className="grid grid-cols-4 sm:grid-cols-6 gap-1.5 sm:gap-2">
                 {cat.games.map((g) => (
                   <div key={g.name} className="group">
-                    <div className="aspect-[3/4] rounded-lg overflow-hidden border border-border/50 group-hover:border-primary/40 transition-colors">
-                      <img src={g.img} alt={g.name} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+                    <div className="aspect-[3/4] rounded-lg overflow-hidden border border-border/50 group-hover:border-primary/40 transition-colors bg-muted">
+                      <img src={g.img} alt={g.name} className="w-full h-full object-cover" loading="lazy" decoding="async" width={120} height={160} />
                     </div>
                     <p className="text-[9px] sm:text-[10px] text-muted-foreground text-center mt-1 truncate leading-tight">{g.name}</p>
                   </div>
