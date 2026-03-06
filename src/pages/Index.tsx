@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import nfsCover from "@/assets/nfs-cover.webp";
+import nfsCover from "@/assets/nfs-cover.png";
 import packImage from "@/assets/pack-image.png";
 import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star, Search, ArrowDown } from "lucide-react";
 import {
