@@ -214,6 +214,7 @@ const TutorialSection = () => {
 
         {/* iOS Content */}
         {platform === "ios" && (
+          <VturbPlayer />
           <div className="space-y-4">
             <h3 className="text-base font-bold text-foreground text-center">Tutorial iPhone (iOS)</h3>
             <div className="rounded-2xl overflow-hidden bg-card border border-border">
