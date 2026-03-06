@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Download, ShieldCheck, ExternalLink, Star, Zap, CheckCircle } from "lucide-react";
 
 const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -133,6 +133,18 @@ const DownloadPage = () => {
     return /iPhone|iPad|iPod/i.test(ua) ? "ios" : "android";
   });
 
+  useEffect(() => {
+    if (platform === "ios") {
+      const exists = document.querySelector('script[src*="69aa29eea584f1a405f84d6b"]');
+      if (!exists) {
+        const s = document.createElement("script");
+        s.src = "https://scripts.converteai.net/a57aea77-33e9-4609-ae0f-96bf93c595a1/players/69aa29eea584f1a405f84d6b/v4/player.js";
+        s.async = true;
+        document.head.appendChild(s);
+      }
+    }
+  }, [platform]);
+
   const steps = platform === "android" ? androidSteps : iosSteps;
 
   return (
@@ -189,16 +201,26 @@ const DownloadPage = () => {
           </div>
 
           {/* Video por plataforma */}
-          <div className="aspect-video rounded-2xl overflow-hidden bg-background border border-border mb-3">
-            <iframe
-              className="w-full h-full"
-              src={`https://www.youtube.com/embed/${platform === "android" ? "VIDEO_ID_ANDROID" : "VIDEO_ID_IOS"}`}
-              title={`Tutorial ${platform === "android" ? "Android" : "iPhone"}`}
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
+          {platform === "android" ? (
+            <div className="aspect-video rounded-2xl overflow-hidden bg-background border border-border mb-3">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/VIDEO_ID_ANDROID"
+                title="Tutorial Android"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          ) : (
+            <div className="rounded-2xl overflow-hidden bg-background border border-border mb-3">
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: '<vturb-smartplayer id="vid-69aa29eea584f1a405f84d6b" style="display:block;margin:0 auto;width:100%;max-width:400px;"></vturb-smartplayer>'
+                }}
+              />
+            </div>
+          )}
           <p className="text-muted-foreground text-xs text-center mb-10">
             ⚠️ O vídeo usa outro jogo como exemplo, mas o processo de instalação é o mesmo.
           </p>
