@@ -1,7 +1,9 @@
 import { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import nfsCover from "@/assets/nfs-cover.png";
+import nfsCoverWebp from "@/assets/nfs-cover.webp";
 import packImage from "@/assets/pack-image.png";
+import packImageWebp from "@/assets/pack-image.webp";
 import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star, Search, ArrowDown } from "lucide-react";
 import {
   Dialog,
@@ -276,12 +278,15 @@ const Index = () => {
 
           {/* Cover */}
           <div className="w-full max-w-md mx-auto mb-6">
-            <img
-              src={nfsCover}
-              alt="Need for Speed Underground 2"
-              className="w-full rounded-2xl shadow-[0_20px_80px_-10px_rgba(34,197,94,0.25),0_10px_40px_-10px_rgba(0,0,0,0.7)] border border-primary/20"
-              decoding="async"
-            />
+            <picture>
+              <source srcSet={nfsCoverWebp} type="image/webp" />
+              <img
+                src={nfsCover}
+                alt="Need for Speed Underground 2"
+                className="w-full rounded-2xl shadow-[0_20px_80px_-10px_rgba(34,197,94,0.25),0_10px_40px_-10px_rgba(0,0,0,0.7)] border border-primary/20"
+                decoding="async"
+              />
+            </picture>
           </div>
 
           {/* Title */}
@@ -408,7 +413,10 @@ const Index = () => {
 
               {/* Pack image */}
               <div className="rounded-lg overflow-hidden mb-3 w-3/4 mx-auto">
-                <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
+                <picture>
+                  <source srcSet={packImageWebp} type="image/webp" />
+                  <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
+                </picture>
               </div>
 
               <ul className="space-y-2 mb-4 flex-1">
@@ -590,7 +598,10 @@ const Index = () => {
 
             {/* Pack image */}
             <div className="rounded-xl overflow-hidden mb-5">
-              <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
+              <picture>
+                <source srcSet={packImageWebp} type="image/webp" />
+                <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
+              </picture>
             </div>
 
             <p className="text-muted-foreground text-xs mb-6">
