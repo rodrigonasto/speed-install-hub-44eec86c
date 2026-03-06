@@ -64,7 +64,7 @@ const iosSteps: StepItem[] = [
     fileName: "Need for Speed Underground 2",
     buttonLabel: "Baixar o jogo (arquivo principal)",
     description: "Arquivo do jogo para rodar no emulador.",
-    link: "https://drive.google.com/file/d/1a8ccJXqWvAOqUBIRNShoRgm8sQCFzOfh/view",
+    link: "https://drive.google.com/file/d/1VeYjk3UQhaeg6cBHXQO5NMFGa-ekTpwz/view",
     isMain: true,
   },
 ];
