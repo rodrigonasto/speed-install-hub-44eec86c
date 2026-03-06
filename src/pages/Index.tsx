@@ -284,7 +284,9 @@ const Index = () => {
                 src={nfsCover}
                 alt="Need for Speed Underground 2"
                 className="w-full rounded-2xl shadow-[0_20px_80px_-10px_rgba(34,197,94,0.25),0_10px_40px_-10px_rgba(0,0,0,0.7)] border border-primary/20"
-                decoding="async"
+                width={448}
+                height={252}
+                fetchPriority="high"
               />
             </picture>
           </div>
