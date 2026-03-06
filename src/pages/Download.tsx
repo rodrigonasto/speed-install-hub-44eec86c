@@ -48,7 +48,7 @@ const iosSteps: StepItem[] = [
     fileName: "iRAR",
     buttonLabel: "Baixar iRAR",
     description: "Necessário para extrair os arquivos do jogo.",
-    link: "#",
+    link: "https://apps.apple.com/br/app/irar-descompactar-arquivo/id989212129",
   },
   {
     step: 2,
@@ -56,7 +56,7 @@ const iosSteps: StepItem[] = [
     fileName: "PPSSPP",
     buttonLabel: "Baixar emulador PPSSPP",
     description: "Aplicativo que permite rodar o jogo no celular.",
-    link: "#",
+    link: "https://apps.apple.com/br/app/ppsspp-psp-emulator/id6496972903",
   },
   {
     step: 3,
@@ -64,7 +64,7 @@ const iosSteps: StepItem[] = [
     fileName: "Need for Speed Underground 2",
     buttonLabel: "Baixar o jogo (arquivo principal)",
     description: "Arquivo do jogo para rodar no emulador.",
-    link: "#",
+    link: "https://drive.google.com/file/d/1a8ccJXqWvAOqUBIRNShoRgm8sQCFzOfh/view",
     isMain: true,
   },
 ];
