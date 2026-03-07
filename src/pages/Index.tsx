@@ -779,11 +779,11 @@ const Index = () => {
                 href="https://pay.lowify.com.br/checkout.php?product_id=KHWzbI"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-full inline-flex items-center justify-center gap-2.5 bg-primary text-primary-foreground font-bold text-sm py-4 rounded-xl hover:brightness-110 transition-all glow-primary"
+                className="group w-full inline-flex items-center justify-center gap-2.5 bg-primary text-primary-foreground font-bold text-sm py-4 rounded-xl hover:brightness-110 transition-all glow-primary whitespace-nowrap"
               >
-                <Zap className="w-4 h-4" />
+                <Zap className="w-4 h-4 flex-shrink-0" />
                 Quero instalar e jogar em 1 clique
-                <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                <ChevronRight className="w-4 h-4 flex-shrink-0 transition-transform group-hover:translate-x-0.5" />
               </a>
 
               <p className="text-primary text-xs font-semibold mt-4">Pagamento único</p>
