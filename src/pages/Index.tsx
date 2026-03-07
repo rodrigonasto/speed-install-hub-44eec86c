@@ -711,8 +711,8 @@ const Index = () => {
               </p>
 
               <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
-                Tudo isso por um valor{" "}
-                <span className="text-gradient-primary">que cabe no seu bolso</span>
+                Instalação automática + Biblioteca gamer{" "}
+                <span className="text-gradient-primary">(+100 jogos)</span>
               </h2>
 
               {/* Preço */}
@@ -784,8 +784,8 @@ const Index = () => {
                 rel="noopener noreferrer"
                 className="group w-full inline-flex items-center justify-center gap-2.5 bg-primary text-primary-foreground font-bold text-sm py-4 rounded-xl hover:brightness-110 transition-all glow-primary"
               >
-                <Star className="w-4 h-4" />
-                Eu quero o Pack Gamer completo
+                <Zap className="w-4 h-4" />
+                Quero instalar e jogar em 1 clique
                 <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
               </a>
 
