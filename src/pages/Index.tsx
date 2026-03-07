@@ -838,7 +838,7 @@ const Index = () => {
 
       {/* ─── FOOTER ─── */}
       <footer className="px-5 py-10 border-t border-border flex flex-col items-center gap-4">
-        <img src={logoFooter} alt="JogosMobileClub" className="h-5 object-contain" />
+        <img src={logoFooter} alt="JogosMobileClub" className="h-12 object-contain" />
         <p className="text-center text-muted-foreground text-[11px]">
           © 2026 JogosMobileClub. Todos os direitos reservados.
         </p>
