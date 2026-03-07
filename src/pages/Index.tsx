@@ -432,8 +432,98 @@ const Index = () => {
             </DialogDescription>
           </DialogHeader>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 px-5 pb-5">
-            {/* Card 1 — Manual */}
+          <div className="px-5 pb-5 space-y-4">
+            {/* Card Premium */}
+            <div className="rounded-2xl p-5 sm:p-6 text-center relative overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(142 72% 50% / 0.06), hsl(150 6% 8%))" }}>
+              <div className="absolute top-0 inset-x-0 h-0.5 shimmer-border" />
+              <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[300px] h-[200px] rounded-full bg-primary/8 blur-[80px]" />
+
+              <div className="relative z-10">
+                <div className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full mb-4 border border-primary/30 bg-primary/10">
+                  <ArrowUp className="w-3.5 h-3.5 text-primary" />
+                  <span className="text-primary">Promoção Especial Update 2.9.5</span>
+                </div>
+
+                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">
+                  Instalação automática +{" "}
+                  <span className="text-gradient-primary">Biblioteca gamer (+100 jogos)</span>
+                </h3>
+
+                {/* Preço */}
+                <div className="text-center mb-1 mt-4">
+                  <span className="text-muted-foreground text-xs line-through block mb-0.5">De R$127,00</span>
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-muted-foreground text-xs">Por apenas</span>
+                    <span className="text-4xl font-extrabold text-gradient-primary">R$ 47</span>
+                    <span className="text-muted-foreground text-base">,00</span>
+                  </div>
+                </div>
+                <p className="text-primary text-xs font-semibold mb-3">Economize R$80 hoje</p>
+                <p className="text-muted-foreground text-[10px] mb-4">
+                  ⏱ Preço promocional válido apenas durante o lançamento do Update 2.9.5
+                </p>
+
+                {/* Pack image */}
+                <div className="rounded-xl overflow-hidden mb-4">
+                  <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
+                </div>
+
+                {/* Badges */}
+                <div className="grid grid-cols-2 gap-2 mb-4 p-3 rounded-xl glass-card">
+                  <div className="flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Check className="w-3.5 h-3.5 text-primary" />
+                    </div>
+                    <div className="text-left">
+                      <p className="text-foreground text-[11px] font-bold">Pagamento Único</p>
+                      <p className="text-muted-foreground text-[9px]">Pague apenas uma vez</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Star className="w-3.5 h-3.5 text-primary" />
+                    </div>
+                    <div className="text-left">
+                      <p className="text-foreground text-[11px] font-bold">Acesso Completo</p>
+                      <p className="text-muted-foreground text-[9px]">+100 jogos inclusos</p>
+                    </div>
+                  </div>
+                </div>
+
+                <ul className="text-left space-y-2 mb-5 grid grid-cols-2 gap-x-3 gap-y-2">
+                  {[
+                    "Instalação em 1 clique",
+                    "+100 jogos clássicos",
+                    "Jogo pronto para jogar",
+                    "Novos jogos nas updates",
+                    "Sem erros ou configs",
+                    "Acesso vitalício",
+                  ].map((t) => (
+                    <li key={t} className="flex items-start gap-1.5 text-[11px] text-foreground/90">
+                      <Check className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="https://pay.lowify.com.br/checkout.php?product_id=KHWzbI"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-sm py-3.5 px-6 rounded-xl hover:brightness-110 transition-all glow-primary overflow-hidden"
+                >
+                  <Zap className="w-4 h-4 flex-shrink-0" />
+                  <span>Quero instalar e jogar em 1 clique</span>
+                  <ChevronRight className="w-4 h-4 flex-shrink-0 transition-transform group-hover:translate-x-0.5" />
+                </a>
+
+                <p className="text-muted-foreground text-[9px] mt-2 flex items-center justify-center gap-1">
+                  <ShieldCheck className="w-3 h-3" /> Compra segura • Entrega imediata
+                </p>
+              </div>
+            </div>
+
+            {/* Card Manual */}
             <div className="rounded-xl glass-card p-4 flex flex-col text-center">
               <h3 className="text-sm font-bold text-foreground mb-1">Instalação manual</h3>
               <span className="text-[10px] text-muted-foreground mb-3">Gratuita</span>
@@ -463,56 +553,6 @@ const Index = () => {
               >
                 Baixar manualmente
               </button>
-            </div>
-
-            {/* Card 2 — Automático (recomendado) */}
-            <div className="rounded-xl p-4 flex flex-col relative overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(142 72% 50% / 0.08), hsl(150 6% 8%))" }}>
-              <div className="absolute top-0 inset-x-0 h-0.5 shimmer-border" />
-
-              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full mb-3 self-center">
-                🔥 Mais escolhido pelos jogadores
-              </span>
-
-              <h3 className="text-sm font-bold text-foreground mb-3 text-center">Instalação automática + Biblioteca gamer (+100 jogos)</h3>
-
-              {/* Pack image */}
-              <div className="rounded-lg overflow-hidden mb-3 w-3/4 mx-auto">
-                <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
-              </div>
-
-              <ul className="space-y-2 mb-4 flex-1">
-                {[
-                  "Instalação automática em 1 clique",
-                  "Jogo pronto para jogar",
-                  "Sem erros ou configurações difíceis",
-                  "Biblioteca com <strong>+100 jogos</strong> clássicos",
-                  "Novos jogos adicionados nas atualizações",
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-2 text-xs text-foreground">
-                    <Check className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
-                    <span dangerouslySetInnerHTML={{ __html: t }} />
-                  </li>
-                ))}
-              </ul>
-
-              <div className="text-center mb-1">
-                <span className="text-muted-foreground text-[10px] line-through block mb-0.5">De R$97</span>
-                <span className="text-3xl font-extrabold text-foreground">R$47</span>
-              </div>
-              <p className="text-muted-foreground text-[9px] text-center mb-1">Pagamento único • Acesso imediato</p>
-              <p className="text-primary text-[11px] font-semibold text-center mb-3">🎉 Economize R$50 hoje</p>
-
-              <a
-                href="https://pay.lowify.com.br/checkout.php?product_id=KHWzbI"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-sm py-3 rounded-lg hover:brightness-110 transition-all glow-primary"
-              >
-                Instalar e jogar agora
-              </a>
-              <p className="text-muted-foreground text-[9px] mt-2 flex items-center justify-center gap-1">
-                <ShieldCheck className="w-3 h-3" /> Compra segura • Entrega imediata
-              </p>
             </div>
           </div>
         </DialogContent>
