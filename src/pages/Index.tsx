@@ -711,8 +711,8 @@ const Index = () => {
               </p>
 
               <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
-                Tudo isso por um valor{" "}
-                <span className="text-gradient-primary">que cabe no seu bolso</span>
+                Instalação automática + Biblioteca gamer{" "}
+                <span className="text-gradient-primary">(+100 jogos)</span>
               </h2>
 
               {/* Preço */}
