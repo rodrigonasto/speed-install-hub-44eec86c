@@ -717,14 +717,14 @@ const Index = () => {
 
               {/* Preço */}
               <div className="text-center mb-1 mt-6">
-                <span className="text-muted-foreground text-sm line-through block mb-1">De R$97,00</span>
+                <span className="text-muted-foreground text-sm line-through block mb-1">De R$127,00</span>
                 <div className="flex items-baseline justify-center gap-1">
                   <span className="text-muted-foreground text-sm">Por apenas</span>
                   <span className="text-5xl font-extrabold text-gradient-primary">R$ 47</span>
                   <span className="text-muted-foreground text-lg">,00</span>
                 </div>
               </div>
-              <p className="text-primary text-xs font-semibold mb-4">Economia de mais de 50%</p>
+              <p className="text-primary text-xs font-semibold mb-4">🎉 Economize R$80 hoje</p>
               <p className="text-muted-foreground text-[11px] mb-6 flex items-center justify-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-muted-foreground" />
                 Preço promocional válido apenas durante o lançamento do Update 2.9.5
