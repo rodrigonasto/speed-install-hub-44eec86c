@@ -395,15 +395,9 @@ const Index = () => {
           variants={stagger}
         >
           <motion.div variants={fadeUp}>
-            <span className="inline-flex items-center gap-1.5 text-primary text-[11px] font-semibold uppercase tracking-widest mb-3">
-              <Download className="w-3.5 h-3.5" /> Download
-            </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
-              Download gratuito
+            <h2 className="inline-flex items-center gap-1.5 text-primary text-xl sm:text-2xl font-bold mb-8">
+              <Download className="w-5 h-5" /> Download gratuito
             </h2>
-            <p className="text-muted-foreground text-sm mb-8">
-              Clique abaixo para baixar o jogo.
-            </p>
           </motion.div>
 
           <motion.div variants={fadeUp}>
@@ -569,15 +563,9 @@ const Index = () => {
       >
         <div className="container max-w-lg mx-auto">
           <motion.div variants={fadeUp} className="text-center mb-8">
-            <span className="inline-flex items-center gap-1.5 text-primary text-[11px] font-semibold uppercase tracking-widest mb-3">
-              <Zap className="w-3.5 h-3.5" /> Comparativo
-            </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
-              Manual vs Automático
+            <h2 className="inline-flex items-center gap-1.5 text-primary text-xl sm:text-2xl font-bold mb-2">
+              <Zap className="w-5 h-5" /> Instalação complicada vs 1 clique
             </h2>
-            <p className="text-muted-foreground text-sm">
-              Não quer instalar manualmente? Compare:
-            </p>
           </motion.div>
 
           <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden glass-card">
