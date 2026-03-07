@@ -5,7 +5,7 @@ import nfsCover from "@/assets/nfs-cover.png";
 import nfsCoverWebp from "@/assets/nfs-cover.webp";
 import packImage from "@/assets/pack-image.png";
 import packImageWebp from "@/assets/pack-image.webp";
-import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star, Search, ChevronRight, Sparkles } from "lucide-react";
+import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star, Search, ChevronRight, Sparkles, ArrowUp } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -700,8 +700,8 @@ const Index = () => {
 
             <div className="relative z-10">
               {/* Badge promoção */}
-              <div className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full mb-5 glass-card">
-                <Sparkles className="w-3.5 h-3.5 text-primary" />
+              <div className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-2.5 rounded-full mb-5 border border-primary/30 bg-primary/10">
+                <ArrowUp className="w-4 h-4 text-primary" />
                 <span className="text-primary">Promoção Especial Update 2.9.5</span>
               </div>
 
