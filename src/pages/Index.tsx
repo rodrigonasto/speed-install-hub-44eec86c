@@ -479,7 +479,6 @@ const Index = () => {
               <div className="rounded-lg overflow-hidden mb-3 w-3/4 mx-auto">
                 <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
               </div>
-              </div>
 
               <ul className="space-y-2 mb-4 flex-1">
                 {[

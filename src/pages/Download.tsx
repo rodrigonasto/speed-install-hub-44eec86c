@@ -295,7 +295,6 @@ const DownloadPage = () => {
               <div className="rounded-xl overflow-hidden mb-6">
                 <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
               </div>
-              </div>
 
               {/* Badges pagamento e acesso */}
               <div className="grid grid-cols-2 gap-3 mb-6 p-4 rounded-xl glass-card">
