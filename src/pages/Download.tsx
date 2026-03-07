@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Download, ShieldCheck, ExternalLink, Star, Zap, Check, ChevronRight, ArrowUp } from "lucide-react";
-import packImage from "@/assets/pack-image.png";
-import packImageWebp from "@/assets/pack-image.webp";
+import packImage from "@/assets/pack-image-v2.png";
 
 const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
