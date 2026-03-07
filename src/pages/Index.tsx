@@ -1,10 +1,11 @@
 import { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import nfsCover from "@/assets/nfs-cover.png";
 import nfsCoverWebp from "@/assets/nfs-cover.webp";
 import packImage from "@/assets/pack-image.png";
 import packImageWebp from "@/assets/pack-image.webp";
-import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star, Search, ArrowDown } from "lucide-react";
+import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star, Search, ChevronRight, Sparkles } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -126,6 +127,15 @@ const categories = [
   },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0, 0, 0.2, 1] as const } },
+};
+
+const stagger = {
+  visible: { transition: { staggerChildren: 0.1 } },
+};
+
 const SocialProofBadge = () => {
   const [count, setCount] = useState(Math.floor(Math.random() * 15) + 18);
 
@@ -144,12 +154,12 @@ const SocialProofBadge = () => {
   }, []);
 
   return (
-    <div className="inline-flex items-center gap-2 text-xs font-bold px-5 py-2.5 rounded-full mb-5" style={{ backgroundColor: '#0D0D0D', color: '#FFFFFF' }}>
+    <div className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full mb-5 glass-card">
       <span className="relative flex h-2 w-2">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
       </span>
-      Jogadores baixando agora
+      <span className="text-muted-foreground">{count} jogadores baixando agora</span>
     </div>
   );
 };
@@ -173,44 +183,56 @@ const TutorialSection = () => {
   }, [platform]);
 
   return (
-    <section id="tutorial" className="px-5 pb-10">
+    <motion.section
+      id="tutorial"
+      className="px-5 pb-14 pt-4"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={stagger}
+    >
       <div className="container max-w-lg mx-auto">
-        <h2 className="text-lg font-bold text-foreground text-center mb-1">
-          Como instalar
-        </h2>
-        <p className="text-muted-foreground text-sm text-center mb-5">
-          Escolha seu sistema para ver o tutorial correto.
-        </p>
+        <motion.div variants={fadeUp} className="text-center mb-8">
+          <span className="inline-flex items-center gap-1.5 text-primary text-[11px] font-semibold uppercase tracking-widest mb-3">
+            <Sparkles className="w-3.5 h-3.5" /> Tutorial
+          </span>
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground">
+            Como instalar
+          </h2>
+          <p className="text-muted-foreground text-sm mt-2">
+            Escolha seu sistema para ver o tutorial correto.
+          </p>
+        </motion.div>
 
         {/* Platform Tabs */}
-        <div className="grid grid-cols-2 gap-3 mb-6">
+        <motion.div variants={fadeUp} className="grid grid-cols-2 gap-3 mb-6">
           <button
             onClick={() => setPlatform("android")}
-            className={`flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all border ${
+            className={`flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all ${
               platform === "android"
-                ? "bg-primary text-primary-foreground border-primary"
-                : "bg-card text-muted-foreground border-border hover:border-primary/50"
+                ? "bg-primary text-primary-foreground glow-primary"
+                : "glass-card text-muted-foreground hover:text-foreground"
             }`}
           >
             <span className="text-xl">🤖</span> Android
           </button>
           <button
             onClick={() => setPlatform("ios")}
-            className={`flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all border ${
+            className={`flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all ${
               platform === "ios"
-                ? "bg-primary text-primary-foreground border-primary"
-                : "bg-card text-muted-foreground border-border hover:border-primary/50"
+                ? "bg-primary text-primary-foreground glow-primary"
+                : "glass-card text-muted-foreground hover:text-foreground"
             }`}
           >
             <span className="text-xl">🍎</span> iPhone
           </button>
-        </div>
+        </motion.div>
 
         {/* Android Content */}
         {platform === "android" && (
-          <div className="space-y-4">
+          <motion.div variants={fadeUp} className="space-y-4">
             <h3 className="text-base font-bold text-foreground text-center">Tutorial Android</h3>
-            <div className="aspect-video rounded-2xl overflow-hidden bg-card border border-border">
+            <div className="aspect-video rounded-2xl overflow-hidden glass-card">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/VIDEO_ID_ANDROID"
@@ -223,14 +245,14 @@ const TutorialSection = () => {
             <p className="text-muted-foreground text-xs text-center">
               ⚠️ O tutorial usa outro jogo como exemplo, mas o processo de instalação é o mesmo.
             </p>
-          </div>
+          </motion.div>
         )}
 
         {/* iOS Content */}
         {platform === "ios" && (
-          <div className="space-y-4">
+          <motion.div variants={fadeUp} className="space-y-4">
             <h3 className="text-base font-bold text-foreground text-center">Tutorial iPhone (iOS)</h3>
-            <div className="rounded-2xl overflow-hidden bg-card border border-border">
+            <div className="rounded-2xl overflow-hidden glass-card">
               <div
                 dangerouslySetInnerHTML={{
                   __html: '<vturb-smartplayer id="vid-69aa29eea584f1a405f84d6b" style="display:block;margin:0 auto;width:100%;max-width:400px;"></vturb-smartplayer>'
@@ -240,10 +262,10 @@ const TutorialSection = () => {
             <p className="text-muted-foreground text-xs text-center">
               ⚠️ O tutorial usa outro jogo como exemplo, mas o processo de instalação é o mesmo.
             </p>
-          </div>
+          </motion.div>
         )}
       </div>
-    </section>
+    </motion.section>
   );
 };
 
@@ -265,66 +287,88 @@ const Index = () => {
   }, [searchQuery]);
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-hidden noise-overlay">
 
       {/* ─── HERO ─── */}
-      <section className="px-5 pt-10 pb-8 sm:pt-16 sm:pb-12">
-        <div className="container max-w-lg mx-auto text-center">
+      <section className="relative px-5 pt-12 pb-10 sm:pt-20 sm:pb-16 overflow-hidden">
+        {/* Background effects */}
+        <div className="absolute inset-0 bg-grid opacity-40" />
+        <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]" />
+
+        <motion.div
+          className="container max-w-lg mx-auto text-center relative z-10"
+          initial="hidden"
+          animate="visible"
+          variants={stagger}
+        >
           {/* Badge */}
-          <div className="inline-flex items-center gap-1.5 bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-6">
-            <Smartphone className="w-3.5 h-3.5" />
-            Android & iPhone
-          </div>
+          <motion.div variants={fadeUp}>
+            <div className="inline-flex items-center gap-1.5 glass-card text-primary text-xs font-semibold px-4 py-1.5 rounded-full mb-8">
+              <Smartphone className="w-3.5 h-3.5" />
+              Android & iPhone
+            </div>
+          </motion.div>
 
           {/* Cover */}
-          <div className="w-full max-w-md mx-auto mb-6">
+          <motion.div variants={fadeUp} className="w-full max-w-sm mx-auto mb-8">
             <picture>
               <source srcSet={nfsCoverWebp} type="image/webp" />
               <img
                 src={nfsCover}
                 alt="Need for Speed Underground 2"
-                className="w-full rounded-2xl shadow-[0_20px_80px_-10px_rgba(34,197,94,0.25),0_10px_40px_-10px_rgba(0,0,0,0.7)] border border-primary/20"
+                className="w-full rounded-2xl glow-primary-strong border border-primary/20"
                 width={448}
                 height={252}
                 fetchPriority="high"
               />
             </picture>
-          </div>
+          </motion.div>
 
           {/* Title */}
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-foreground leading-tight mb-2">
-             Aprenda como jogar{" "}
-             <span className="text-amber-400">Need for Speed Underground 2</span>{" "}
-             no celular
-          </h1>
-          <p className="text-muted-foreground text-sm sm:text-base mb-6">
+          <motion.h1 variants={fadeUp} className="text-2xl sm:text-4xl font-extrabold text-foreground leading-tight mb-3">
+            Aprenda como jogar{" "}
+            <span className="text-gradient-primary italic">Need for Speed Underground 2</span>{" "}
+            no celular
+          </motion.h1>
+
+          <motion.p variants={fadeUp} className="text-muted-foreground text-sm sm:text-base mb-8 max-w-md mx-auto">
             Baixe grátis e instale em poucos minutos para começar a jogar agora.
-          </p>
+          </motion.p>
 
           {/* CTA */}
-          <button
-            onClick={() => scrollTo("download")}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-sm px-8 py-3.5 rounded-xl hover:brightness-110 transition-all"
-          >
-            <Download className="w-4 h-4" />
-            Baixar grátis
-          </button>
+          <motion.div variants={fadeUp}>
+            <button
+              onClick={() => scrollTo("download")}
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-primary text-primary-foreground font-bold text-sm px-10 py-4 rounded-xl hover:brightness-110 transition-all glow-primary"
+            >
+              <Download className="w-4.5 h-4.5" />
+              Baixar grátis
+              <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            </button>
+          </motion.div>
 
           {/* Trust */}
-          <div className="flex items-center justify-center gap-4 mt-4 text-muted-foreground text-[11px]">
-            <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3" /> Seguro</span>
-            <span>•</span>
+          <motion.div variants={fadeUp} className="flex items-center justify-center gap-5 mt-6 text-muted-foreground text-xs">
+            <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-primary/70" /> Seguro</span>
+            <span className="w-1 h-1 rounded-full bg-border" />
             <span>Sem cadastro</span>
-            <span>•</span>
+            <span className="w-1 h-1 rounded-full bg-border" />
             <span>Grátis</span>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* ─── SOCIAL PROOF ─── */}
-      <section className="px-5 pb-8">
-        <div className="container max-w-lg mx-auto">
-          <div className="flex items-center justify-center gap-1 mb-1">
+      <section className="px-5 pb-10">
+        <motion.div
+          className="container max-w-lg mx-auto"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          <div className="flex items-center justify-center gap-1 mb-1.5">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
             ))}
@@ -332,32 +376,50 @@ const Index = () => {
           <p className="text-center text-muted-foreground text-xs">
             <span className="text-foreground font-semibold">4.9/5</span> • Mais de 2.800 downloads essa semana
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/* ─── TUTORIAL ─── */}
       <TutorialSection />
 
       {/* ─── DOWNLOAD ─── */}
-      <section id="download" className="px-5 py-10 bg-card">
-        <div className="container max-w-lg mx-auto text-center">
-          <h2 className="text-lg font-bold text-foreground mb-2">
-            Download gratuito
-          </h2>
-          <p className="text-muted-foreground text-sm mb-6">
-            Clique abaixo para baixar o jogo.
-          </p>
-          <button
-            onClick={() => setDownloadModalOpen(true)}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-base px-10 py-4 rounded-xl hover:brightness-110 transition-all"
-          >
-            <Download className="w-5 h-5" />
-            Baixar agora
-          </button>
-          <p className="text-muted-foreground text-[11px] mt-3 flex items-center justify-center gap-1">
-            <ShieldCheck className="w-3 h-3" /> Download seguro e gratuito
-          </p>
-        </div>
+      <section id="download" className="relative px-5 py-14">
+        <div className="absolute inset-0 bg-grid-small opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-card/80 to-background/80" />
+
+        <motion.div
+          className="container max-w-lg mx-auto text-center relative z-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={stagger}
+        >
+          <motion.div variants={fadeUp}>
+            <span className="inline-flex items-center gap-1.5 text-primary text-[11px] font-semibold uppercase tracking-widest mb-3">
+              <Download className="w-3.5 h-3.5" /> Download
+            </span>
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
+              Download gratuito
+            </h2>
+            <p className="text-muted-foreground text-sm mb-8">
+              Clique abaixo para baixar o jogo.
+            </p>
+          </motion.div>
+
+          <motion.div variants={fadeUp}>
+            <button
+              onClick={() => setDownloadModalOpen(true)}
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-primary text-primary-foreground font-bold text-base px-12 py-4 rounded-xl hover:brightness-110 transition-all glow-primary"
+            >
+              <Download className="w-5 h-5" />
+              Baixar agora
+              <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            </button>
+            <p className="text-muted-foreground text-[11px] mt-4 flex items-center justify-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-primary/70" /> Download seguro e gratuito
+            </p>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* ─── MODAL DE DOWNLOAD ─── */}
@@ -372,7 +434,7 @@ const Index = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 px-5 pb-5">
             {/* Card 1 — Manual */}
-            <div className="rounded-xl border border-border bg-background p-4 flex flex-col text-center">
+            <div className="rounded-xl glass-card p-4 flex flex-col text-center">
               <h3 className="text-sm font-bold text-foreground mb-1">Instalação manual</h3>
               <span className="text-[10px] text-muted-foreground mb-3">Gratuita</span>
 
@@ -404,8 +466,8 @@ const Index = () => {
             </div>
 
             {/* Card 2 — Automático (recomendado) */}
-            <div className="rounded-xl border-2 border-primary bg-primary/5 p-4 flex flex-col relative">
-              <div className="absolute top-0 inset-x-0 h-0.5 bg-primary rounded-t-xl" />
+            <div className="rounded-xl p-4 flex flex-col relative overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(142 72% 50% / 0.08), hsl(150 6% 8%))" }}>
+              <div className="absolute top-0 inset-x-0 h-0.5 shimmer-border" />
 
               <span className="inline-flex items-center gap-1 text-[10px] font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full mb-3 self-center">
                 🔥 Mais escolhido pelos jogadores
@@ -447,7 +509,7 @@ const Index = () => {
                 href="https://pay.lowify.com.br/checkout.php?product_id=KHWzbI"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-sm py-3 rounded-lg hover:brightness-110 transition-all"
+                className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-sm py-3 rounded-lg hover:brightness-110 transition-all glow-primary"
               >
                 Instalar e jogar agora
               </a>
@@ -460,22 +522,34 @@ const Index = () => {
       </Dialog>
 
       {/* ─── COMPARAÇÃO ─── */}
-      <section id="comparativo" className="px-5 py-10">
+      <motion.section
+        id="comparativo"
+        className="px-5 py-14"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={stagger}
+      >
         <div className="container max-w-lg mx-auto">
-          <h2 className="text-lg font-bold text-foreground text-center mb-2">
-            Manual vs Automático
-          </h2>
-          <p className="text-muted-foreground text-xs text-center mb-6">
-            Não quer instalar manualmente? Compare:
-          </p>
+          <motion.div variants={fadeUp} className="text-center mb-8">
+            <span className="inline-flex items-center gap-1.5 text-primary text-[11px] font-semibold uppercase tracking-widest mb-3">
+              <Zap className="w-3.5 h-3.5" /> Comparativo
+            </span>
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
+              Manual vs Automático
+            </h2>
+            <p className="text-muted-foreground text-sm">
+              Não quer instalar manualmente? Compare:
+            </p>
+          </motion.div>
 
-          <div className="rounded-2xl border border-border overflow-hidden">
+          <motion.div variants={fadeUp} className="rounded-2xl overflow-hidden glass-card">
             {/* Header */}
             <div className="grid grid-cols-2">
-              <div className="bg-card p-3 text-center border-b border-r border-border">
+              <div className="bg-muted/50 p-3.5 text-center border-b border-r border-border">
                 <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Manual</span>
               </div>
-              <div className="bg-primary/5 p-3 text-center border-b border-border">
+              <div className="p-3.5 text-center border-b border-border" style={{ background: "hsl(142 72% 50% / 0.06)" }}>
                 <span className="text-xs font-bold text-primary uppercase tracking-wider">Automático</span>
               </div>
             </div>
@@ -487,11 +561,11 @@ const Index = () => {
               ["Apenas 1 jogo", "Biblioteca com +100 jogos"],
             ].map(([manual, auto], i) => (
               <div key={i} className="grid grid-cols-2">
-                <div className="bg-card/50 border-b border-r border-border p-3 flex items-center gap-2">
+                <div className="bg-muted/30 border-b border-r border-border p-3.5 flex items-center gap-2">
                   <X className="w-3.5 h-3.5 text-destructive flex-shrink-0" />
                   <span className="text-muted-foreground text-xs">{manual}</span>
                 </div>
-                <div className="bg-primary/5 border-b border-border p-3 flex items-center gap-2">
+                <div className="border-b border-border p-3.5 flex items-center gap-2" style={{ background: "hsl(142 72% 50% / 0.04)" }}>
                   <Check className="w-3.5 h-3.5 text-primary flex-shrink-0" />
                   <span className="text-foreground text-xs font-medium">{auto}</span>
                 </div>
@@ -500,177 +574,234 @@ const Index = () => {
 
             {/* Price */}
             <div className="grid grid-cols-2">
-              <div className="bg-card/50 border-r border-border p-3 text-center">
+              <div className="bg-muted/30 border-r border-border p-3.5 text-center">
                 <span className="text-sm font-bold text-primary">Grátis</span>
               </div>
-              <div className="bg-primary/5 p-3 text-center">
+              <div className="p-3.5 text-center" style={{ background: "hsl(142 72% 50% / 0.04)" }}>
                 <span className="text-[10px] text-muted-foreground line-through block">De R$97</span>
                 <span className="text-sm font-bold text-primary">R$47</span>
                 <span className="text-[9px] text-primary block mt-0.5">Economize R$50</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <button
-            onClick={() => scrollTo("premium")}
-            className="w-full mt-5 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-sm px-6 py-3 rounded-xl hover:brightness-110 transition-all"
-          >
-            <Zap className="w-4 h-4" />
-            Quero a versão automática
-          </button>
+          <motion.div variants={fadeUp}>
+            <button
+              onClick={() => scrollTo("premium")}
+              className="group w-full mt-6 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-sm px-6 py-3.5 rounded-xl hover:brightness-110 transition-all glow-primary"
+            >
+              <Zap className="w-4 h-4" />
+              Quero a versão automática
+              <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            </button>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ─── JOGOS DO PACK ─── */}
-      <section id="jogos" className="px-5 py-10 bg-card">
-        <div className="container max-w-2xl mx-auto">
-          {/* Header */}
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-foreground text-center mb-3">
-            Escolha Seu Jogo Favorito e
-            <br />
-            <span className="italic text-amber-400">Jogue Para Sempre!</span>
-          </h2>
+      <section id="jogos" className="relative px-5 py-14">
+        <div className="absolute inset-0 bg-grid opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-card/90 via-card/70 to-card/90" />
 
-          {/* Trust badges - card style */}
-          <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-8 max-w-md mx-auto">
+        <motion.div
+          className="container max-w-2xl mx-auto relative z-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={stagger}
+        >
+          {/* Header */}
+          <motion.div variants={fadeUp} className="text-center mb-8">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-foreground mb-3">
+              Escolha Seu Jogo Favorito e
+              <br />
+              <span className="text-gradient-primary italic">Jogue Para Sempre!</span>
+            </h2>
+          </motion.div>
+
+          {/* Trust badges */}
+          <motion.div variants={fadeUp} className="grid grid-cols-3 gap-2 sm:gap-3 mb-10 max-w-md mx-auto">
             {[
               { icon: "💰", label: "Pagamento", highlight: "Único" },
               { icon: "♾️", label: "Acesso", highlight: "Vitalício" },
               { icon: "⚡", label: "Download", highlight: "Imediato" },
             ].map((item) => (
-              <div key={item.label} className="bg-background border border-border rounded-xl p-3 text-center">
+              <div key={item.label} className="glass-card rounded-xl p-3 text-center">
                 <span className="text-lg block mb-1">{item.icon}</span>
                 <span className="text-[10px] text-muted-foreground block">{item.label}</span>
                 <span className="text-xs font-bold text-primary">{item.highlight}</span>
               </div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Search bar */}
-          <div className="relative mb-8">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+          <motion.div variants={fadeUp} className="relative mb-10">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <input
               type="text"
               placeholder="Buscar jogos..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-background border border-border rounded-xl pl-10 pr-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+              className="w-full glass-card rounded-xl pl-11 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all"
             />
-          </div>
+          </motion.div>
 
           {/* Games grid */}
           {filteredCategories.length > 0 ? filteredCategories.map((cat) => (
-            <div key={cat.label} className="mb-8 last:mb-0">
-              <h3 className="text-sm font-bold text-foreground mb-3">{cat.label}</h3>
-              <div className="grid grid-cols-4 sm:grid-cols-6 gap-1.5 sm:gap-2">
+            <motion.div key={cat.label} className="mb-10 last:mb-0" variants={fadeUp}>
+              <h3 className="text-sm font-bold text-foreground mb-4 flex items-center gap-2">
+                {cat.label}
+                <span className="h-px flex-1 bg-border" />
+                <span className="text-[10px] text-muted-foreground font-normal">{cat.games.length} jogos</span>
+              </h3>
+              <div className="grid grid-cols-4 sm:grid-cols-6 gap-2 sm:gap-2.5">
                 {cat.games.map((g) => (
                   <div key={g.name} className="group">
-                    <div className="aspect-[3/4] rounded-lg overflow-hidden border border-border/50 group-hover:border-primary/40 transition-colors bg-muted">
-                      <img src={g.img} alt={g.name} className="w-full h-full object-cover" loading="lazy" decoding="async" width={120} height={160} />
+                    <div className="aspect-[3/4] rounded-lg overflow-hidden border border-border/50 group-hover:border-primary/40 group-hover:glow-primary transition-all bg-muted">
+                      <img src={g.img} alt={g.name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" decoding="async" width={120} height={160} />
                     </div>
-                    <p className="text-[9px] sm:text-[10px] text-muted-foreground text-center mt-1 truncate leading-tight">{g.name}</p>
+                    <p className="text-[9px] sm:text-[10px] text-muted-foreground text-center mt-1.5 truncate leading-tight">{g.name}</p>
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           )) : (
             <p className="text-muted-foreground text-sm text-center py-8">
               Nenhum jogo encontrado para "{searchQuery}"
             </p>
           )}
 
-          <p className="text-muted-foreground text-[10px] text-center mt-4">
+          <motion.p variants={fadeUp} className="text-muted-foreground text-[10px] text-center mt-6">
             E mais jogos adicionados toda semana!
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </section>
 
       {/* ─── PREMIUM ─── */}
-      <section id="premium" className="px-5 py-10">
+      <motion.section
+        id="premium"
+        className="px-5 py-14"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={stagger}
+      >
         <div className="container max-w-md mx-auto">
-          <div className="rounded-2xl border border-primary/30 bg-card p-6 sm:p-8 text-center relative">
-            {/* Top bar */}
-            <div className="absolute top-0 inset-x-0 h-0.5 bg-primary rounded-t-2xl" />
+          <motion.div
+            variants={fadeUp}
+            className="rounded-2xl p-6 sm:p-8 text-center relative overflow-hidden"
+            style={{ background: "linear-gradient(180deg, hsl(142 72% 50% / 0.06), hsl(150 6% 8%))" }}
+          >
+            {/* Top shimmer bar */}
+            <div className="absolute top-0 inset-x-0 h-0.5 shimmer-border" />
 
-            <SocialProofBadge />
+            {/* Glow orb */}
+            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[300px] h-[200px] rounded-full bg-primary/8 blur-[80px]" />
 
-            <h2 className="text-xl font-bold text-foreground mb-3">
-              Instalação automática + Biblioteca gamer (+100 jogos)
-            </h2>
+            <div className="relative z-10">
+              <SocialProofBadge />
 
-            {/* Pack image */}
-            <div className="rounded-xl overflow-hidden mb-5">
-              <picture>
-                <source srcSet={packImageWebp} type="image/webp" />
-                <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
-              </picture>
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
+                Instalação automática + Biblioteca gamer{" "}
+                <span className="text-gradient-primary">(+100 jogos)</span>
+              </h2>
+
+              {/* Pack image */}
+              <div className="rounded-xl overflow-hidden mb-6">
+                <picture>
+                  <source srcSet={packImageWebp} type="image/webp" />
+                  <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
+                </picture>
+              </div>
+
+              <p className="text-muted-foreground text-sm mb-6">
+                Tudo pronto, sem dor de cabeça
+              </p>
+
+              <ul className="text-left space-y-3 mb-8">
+                {[
+                  "Instalação automática em 1 clique",
+                  "Jogo pronto para jogar",
+                  "Sem erros ou configurações difíceis",
+                  "Biblioteca com <strong>+100 jogos</strong> clássicos",
+                  "Novos jogos adicionados nas atualizações",
+                ].map((t) => (
+                  <li key={t} className="flex items-start gap-3 text-sm text-foreground/90">
+                    <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-3 h-3 text-primary" />
+                    </div>
+                    <span dangerouslySetInnerHTML={{ __html: t }} />
+                  </li>
+                ))}
+              </ul>
+
+              <div className="text-center mb-2">
+                <span className="text-muted-foreground text-xs line-through block mb-1">De R$97</span>
+                <span className="text-4xl font-extrabold text-foreground">R$47</span>
+              </div>
+              <p className="text-muted-foreground text-[10px] mb-1">Pagamento único • Acesso imediato</p>
+              <p className="text-primary text-xs font-semibold mb-6">🎉 Economize R$50 hoje</p>
+
+              <a
+                href="https://pay.lowify.com.br/checkout.php?product_id=KHWzbI"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group w-full inline-flex items-center justify-center gap-2.5 bg-primary text-primary-foreground font-bold text-sm py-4 rounded-xl hover:brightness-110 transition-all glow-primary"
+              >
+                Instalar e jogar agora
+                <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+              </a>
+              <p className="text-muted-foreground text-[10px] mt-3 flex items-center justify-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-primary/70" /> Compra segura • Entrega imediata
+              </p>
             </div>
-
-            <p className="text-muted-foreground text-xs mb-6">
-              Tudo pronto, sem dor de cabeça
-            </p>
-
-            <ul className="text-left space-y-2.5 mb-6">
-              {[
-                "Instalação automática em 1 clique",
-                "Jogo pronto para jogar",
-                "Sem erros ou configurações difíceis",
-                "Biblioteca com <strong>+100 jogos</strong> clássicos",
-                "Novos jogos adicionados nas atualizações",
-              ].map((t) => (
-                <li key={t} className="flex items-start gap-2.5 text-sm text-foreground/90">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span dangerouslySetInnerHTML={{ __html: t }} />
-                </li>
-              ))}
-            </ul>
-
-            <div className="text-center mb-1">
-              <span className="text-muted-foreground text-xs line-through block mb-1">De R$97</span>
-              <span className="text-4xl font-extrabold text-foreground">R$47</span>
-            </div>
-            <p className="text-muted-foreground text-[10px] mb-1">Pagamento único • Acesso imediato</p>
-            <p className="text-primary text-xs font-semibold mb-5">🎉 Economize R$50 hoje</p>
-
-            <a
-              href="https://pay.lowify.com.br/checkout.php?product_id=KHWzbI"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-sm py-3.5 rounded-xl hover:brightness-110 transition-all"
-            >
-              Instalar e jogar agora
-            </a>
-            <p className="text-muted-foreground text-[10px] mt-2 flex items-center justify-center gap-1">
-              <ShieldCheck className="w-3 h-3" /> Compra segura • Entrega imediata
-            </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ─── FAQ ─── */}
-      <section className="px-5 py-10 bg-card">
-        <div className="container max-w-lg mx-auto">
-          <h2 className="text-lg font-bold text-foreground text-center mb-6">
-            Dúvidas frequentes
-          </h2>
+      <motion.section
+        className="relative px-5 py-14"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={stagger}
+      >
+        <div className="absolute inset-0 bg-grid-small opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-card/80 to-background/80" />
+
+        <div className="container max-w-lg mx-auto relative z-10">
+          <motion.div variants={fadeUp} className="text-center mb-8">
+            <span className="inline-flex items-center gap-1.5 text-primary text-[11px] font-semibold uppercase tracking-widest mb-3">
+              FAQ
+            </span>
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground">
+              Dúvidas frequentes
+            </h2>
+          </motion.div>
+
           <div className="space-y-3">
             {[
               { q: "O download é gratuito?", a: "Sim, você pode baixar e instalar o jogo gratuitamente." },
               { q: "Preciso pagar para jogar?", a: "Não. O pagamento é só para quem quer instalação automática e o pack com +100 jogos." },
               { q: "O instalador automático é seguro?", a: "Sim, ele apenas automatiza a instalação para facilitar." },
               { q: "Quais jogos vêm no pack?", a: "GTA, God of War, NFS, Dragon Ball, Naruto, Spider-Man, Tekken, e muitos outros clássicos." },
-            ].map(({ q, a }) => (
-              <div key={q} className="rounded-xl bg-background border border-border p-4">
-                <h3 className="text-sm font-semibold text-foreground mb-1">{q}</h3>
+            ].map(({ q, a }, i) => (
+              <motion.div
+                key={q}
+                variants={fadeUp}
+                className="rounded-xl glass-card p-5"
+              >
+                <h3 className="text-sm font-semibold text-foreground mb-1.5">{q}</h3>
                 <p className="text-muted-foreground text-xs leading-relaxed">{a}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ─── FOOTER ─── */}
-      <footer className="px-5 py-6 border-t border-border">
+      <footer className="px-5 py-8 border-t border-border">
         <p className="text-center text-muted-foreground text-[10px]">
           Conteúdo criado para ajudar jogadores a baixar e instalar Need for Speed Underground no celular sem complicação.
         </p>
