@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Download, ShieldCheck, ExternalLink, Star, Zap, Check, ChevronRight, ArrowUp } from "lucide-react";
-import packImage from "@/assets/pack-image.png";
-import packImageWebp from "@/assets/pack-image.webp";
+import packImage from "@/assets/pack-image-v2.png";
 
 const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
@@ -294,10 +293,7 @@ const DownloadPage = () => {
 
               {/* Pack image */}
               <div className="rounded-xl overflow-hidden mb-6">
-                <picture>
-                  <source srcSet={packImageWebp} type="image/webp" />
-                  <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
-                </picture>
+                <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
               </div>
 
               {/* Badges pagamento e acesso */}

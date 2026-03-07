@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import nfsCover from "@/assets/nfs-cover.png";
 import nfsCoverWebp from "@/assets/nfs-cover.webp";
-import packImage from "@/assets/pack-image.png";
-import packImageWebp from "@/assets/pack-image.webp";
+import packImage from "@/assets/pack-image-v2.png";
 import logoFooter from "@/assets/logo-jogosmobileclub.png";
 import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star, Search, ChevronRight, Sparkles, ArrowUp } from "lucide-react";
 import {
@@ -478,10 +477,7 @@ const Index = () => {
 
               {/* Pack image */}
               <div className="rounded-lg overflow-hidden mb-3 w-3/4 mx-auto">
-                <picture>
-                  <source srcSet={packImageWebp} type="image/webp" />
-                  <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
-                </picture>
+                <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
               </div>
 
               <ul className="space-y-2 mb-4 flex-1">
