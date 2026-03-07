@@ -433,6 +433,38 @@ const Index = () => {
           </DialogHeader>
 
           <div className="px-5 pb-5 space-y-4">
+            {/* Card Manual */}
+            <div className="rounded-xl glass-card p-4 flex flex-col text-center">
+              <h3 className="text-sm font-bold text-foreground mb-1">Instalação manual</h3>
+              <span className="text-[10px] text-muted-foreground mb-3">Gratuita</span>
+
+              <ul className="space-y-2 mb-4 flex-1 text-left">
+                {[
+                  "Instalação passo a passo",
+                  "Requer configuração manual",
+                  "Apenas o jogo Need for Speed Underground 2",
+                ].map((t) => (
+                  <li key={t} className="flex items-start gap-2 text-xs text-muted-foreground">
+                    <span className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 rounded-full border border-border flex items-center justify-center">
+                      <X className="w-2 h-2 text-muted-foreground" />
+                    </span>
+                    {t}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mb-3">
+                <span className="text-sm font-bold text-foreground">Grátis</span>
+              </div>
+
+              <button
+                onClick={() => navigate("/download")}
+                className="w-full inline-flex items-center justify-center gap-2 border border-border text-foreground font-semibold text-xs py-2.5 rounded-lg hover:bg-muted transition-colors"
+              >
+                Baixar manualmente
+              </button>
+            </div>
+
             {/* Card Premium */}
             <div className="rounded-2xl p-5 sm:p-6 text-center relative overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(142 72% 50% / 0.06), hsl(150 6% 8%))" }}>
               <div className="absolute top-0 inset-x-0 h-0.5 shimmer-border" />
@@ -521,38 +553,6 @@ const Index = () => {
                   <ShieldCheck className="w-3 h-3" /> Compra segura • Entrega imediata
                 </p>
               </div>
-            </div>
-
-            {/* Card Manual */}
-            <div className="rounded-xl glass-card p-4 flex flex-col text-center">
-              <h3 className="text-sm font-bold text-foreground mb-1">Instalação manual</h3>
-              <span className="text-[10px] text-muted-foreground mb-3">Gratuita</span>
-
-              <ul className="space-y-2 mb-4 flex-1 text-left">
-                {[
-                  "Instalação passo a passo",
-                  "Requer configuração manual",
-                  "Apenas o jogo Need for Speed Underground 2",
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-2 text-xs text-muted-foreground">
-                    <span className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 rounded-full border border-border flex items-center justify-center">
-                      <X className="w-2 h-2 text-muted-foreground" />
-                    </span>
-                    {t}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mb-3">
-                <span className="text-sm font-bold text-foreground">Grátis</span>
-              </div>
-
-              <button
-                onClick={() => navigate("/download")}
-                className="w-full inline-flex items-center justify-center gap-2 border border-border text-foreground font-semibold text-xs py-2.5 rounded-lg hover:bg-muted transition-colors"
-              >
-                Baixar manualmente
-              </button>
             </div>
           </div>
         </DialogContent>
