@@ -5,6 +5,7 @@ import nfsCover from "@/assets/nfs-cover.png";
 import nfsCoverWebp from "@/assets/nfs-cover.webp";
 import packImage from "@/assets/pack-image.png";
 import packImageWebp from "@/assets/pack-image.webp";
+import logoFooter from "@/assets/logo-jogosmobileclub.png";
 import { Download, Check, X, Smartphone, ShieldCheck, Zap, Star, Search, ChevronRight, Sparkles, ArrowUp } from "lucide-react";
 import {
   Dialog,
