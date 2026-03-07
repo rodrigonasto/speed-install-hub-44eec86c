@@ -836,9 +836,13 @@ const Index = () => {
       </motion.section>
 
       {/* ─── FOOTER ─── */}
-      <footer className="px-5 py-8 border-t border-border">
+      <footer className="px-5 py-10 border-t border-border flex flex-col items-center gap-4">
+        <img src={logoFooter} alt="JogosMobileClub" className="h-8 object-contain" />
+        <p className="text-center text-muted-foreground text-[11px]">
+          © 2026 JogosMobileClub. Todos os direitos reservados.
+        </p>
         <p className="text-center text-muted-foreground text-[10px]">
-          Conteúdo criado para ajudar jogadores a baixar e instalar Need for Speed Underground no celular sem complicação.
+          CNPJ: 87.107.515/0001-73
         </p>
       </footer>
     </div>
