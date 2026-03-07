@@ -477,10 +477,8 @@ const Index = () => {
 
               {/* Pack image */}
               <div className="rounded-lg overflow-hidden mb-3 w-3/4 mx-auto">
-                <picture>
-                  <source srcSet={packImageWebp} type="image/webp" />
-                  <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
-                </picture>
+                <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
+              </div>
               </div>
 
               <ul className="space-y-2 mb-4 flex-1">
