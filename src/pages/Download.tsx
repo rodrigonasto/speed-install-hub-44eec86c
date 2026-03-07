@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { Download, ShieldCheck, ExternalLink, Star, Zap, CheckCircle } from "lucide-react";
+import { Download, ShieldCheck, ExternalLink, Star, Zap, Check, ChevronRight, ArrowUp } from "lucide-react";
+import packImage from "@/assets/pack-image.png";
+import packImageWebp from "@/assets/pack-image.webp";
 
 const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
@@ -248,52 +250,112 @@ const DownloadPage = () => {
             ))}
           </div>
 
-          {/* ─── ATALHO PREMIUM (soft sell) ─── */}
-          <div className="mt-8 rounded-2xl border border-border bg-secondary/40 p-5">
-            <div className="flex items-center gap-2 mb-3">
-              <Zap className="w-4 h-4 text-primary" />
-              <h4 className="text-sm font-bold text-foreground">
-                Instalação automática <span className="text-muted-foreground font-normal text-xs">(recomendado)</span>
-              </h4>
+          {/* ─── PREMIUM ─── */}
+          <div
+            className="mt-8 rounded-2xl p-6 sm:p-8 text-center relative overflow-hidden"
+            style={{ background: "linear-gradient(180deg, hsl(142 72% 50% / 0.06), hsl(150 6% 8%))" }}
+          >
+            {/* Top shimmer bar */}
+            <div className="absolute top-0 inset-x-0 h-0.5 shimmer-border" />
+
+            {/* Glow orb */}
+            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[300px] h-[200px] rounded-full bg-primary/8 blur-[80px]" />
+
+            <div className="relative z-10">
+              {/* Badge promoção */}
+              <div className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-2.5 rounded-full mb-5 border border-primary/30 bg-primary/10">
+                <ArrowUp className="w-4 h-4 text-primary" />
+                <span className="text-primary">Promoção Especial Update 2.9.5</span>
+              </div>
+
+              <p className="text-muted-foreground text-sm mb-5 max-w-sm mx-auto">
+                Lançamento da versão 2.9.5 com preço especial de lançamento.{" "}
+                <strong className="text-foreground">Esta oferta é limitada e o valor retornará ao normal em breve.</strong>
+              </p>
+
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
+                Instalação automática +{" "}
+                <span className="text-gradient-primary">Biblioteca gamer (+100 jogos)</span>
+              </h2>
+
+              {/* Preço */}
+              <div className="text-center mb-1 mt-6">
+                <span className="text-muted-foreground text-sm line-through block mb-1">De R$127,00</span>
+                <div className="flex items-baseline justify-center gap-1">
+                  <span className="text-muted-foreground text-sm">Por apenas</span>
+                  <span className="text-5xl font-extrabold text-gradient-primary">R$ 47</span>
+                  <span className="text-muted-foreground text-lg">,00</span>
+                </div>
+              </div>
+              <p className="text-primary text-xs font-semibold mb-4">Economize R$80 hoje</p>
+              <p className="text-muted-foreground text-[11px] mb-6 text-center">
+                ⏱ Preço promocional válido apenas durante o lançamento do Update 2.9.5
+              </p>
+
+              {/* Pack image */}
+              <div className="rounded-xl overflow-hidden mb-6">
+                <picture>
+                  <source srcSet={packImageWebp} type="image/webp" />
+                  <img src={packImage} alt="Pack com todos os jogos" className="w-full" loading="lazy" decoding="async" />
+                </picture>
+              </div>
+
+              {/* Badges pagamento e acesso */}
+              <div className="grid grid-cols-2 gap-3 mb-6 p-4 rounded-xl glass-card">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-4 h-4 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-foreground text-xs font-bold">Pagamento Único</p>
+                    <p className="text-muted-foreground text-[10px]">Pague apenas uma vez</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Star className="w-4 h-4 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-foreground text-xs font-bold">Acesso Completo</p>
+                    <p className="text-muted-foreground text-[10px]">+100 jogos inclusos</p>
+                  </div>
+                </div>
+              </div>
+
+              <ul className="text-left space-y-3 mb-8 grid grid-cols-2 gap-x-4 gap-y-3">
+                {[
+                  "Instalação automática em 1 clique",
+                  "Biblioteca com +100 jogos clássicos",
+                  "Jogo pronto para jogar",
+                  "Novos jogos nas atualizações",
+                  "Sem erros ou configurações difíceis",
+                  "Acesso vitalício",
+                  "Suporte via comunidade",
+                  "Atualizações gratuitas",
+                ].map((t) => (
+                  <li key={t} className="flex items-start gap-2 text-xs text-foreground/90">
+                    <Check className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href="https://pay.lowify.com.br/checkout.php?product_id=KHWzbI"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-sm py-4 px-6 rounded-xl hover:brightness-110 transition-all glow-primary overflow-hidden"
+              >
+                <Zap className="w-4 h-4 flex-shrink-0" />
+                <span>Quero instalar e jogar em 1 clique</span>
+                <ChevronRight className="w-4 h-4 flex-shrink-0 transition-transform group-hover:translate-x-0.5" />
+              </a>
+
+              <p className="text-primary text-xs font-semibold mt-4">Pagamento único</p>
+              <p className="text-muted-foreground text-[10px] mt-1 max-w-xs mx-auto">
+                Sem mensalidades. Sem taxas escondidas. Sem renovação. Você paga uma única vez e tem acesso completo e vitalício.
+              </p>
             </div>
-
-            <p className="text-muted-foreground text-xs mb-4">
-              Pare de perder tempo com instalação manual.
-              <br />
-              Com a versão automática você recebe:
-            </p>
-
-            <ul className="space-y-2 mb-5">
-              {[
-                "Instalação em 1 clique",
-                "Jogo já configurado",
-                "Sem erros ou arquivos faltando",
-                "Biblioteca com +100 jogos clássicos",
-              ].map((item) => (
-                <li key={item} className="flex items-center gap-2 text-xs text-foreground/80">
-                  <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-
-            {/* Preço */}
-            <div className="flex items-baseline gap-2 mb-1">
-              <span className="text-muted-foreground text-sm line-through">R$97</span>
-              <span className="text-foreground text-2xl font-extrabold">R$47</span>
-            </div>
-            <p className="text-muted-foreground text-[11px] mb-4">
-              Pagamento único • Acesso imediato
-            </p>
-
-            <a
-              href="https://pay.lowify.com.br/checkout.php?product_id=KHWzbI"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold text-sm py-3.5 rounded-xl hover:brightness-110 transition-all"
-            >
-              🚀 Instalar automaticamente e jogar agora
-            </a>
           </div>
 
           {/* Toggle link */}
